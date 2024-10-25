@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+
+/*
+    Aqui definimos as variáveis para coisas que se repetem demais no css
+    por exemplo, a cor primaria é a #A30000, então criamos uma variável
+    com ela e usamos essa variável sempre que precisamos com var(nome_variavel)
+*/
+:root {
+    --primary: #A30000;
+}
+
+
+/*
+    Esssa é a seção de padrões. vai criar um input? botão? copiei o html da navbar e
+    então os estilos padronizados irão junto.
+*/
+.button-primary, .button-secondary {
+    border-radius: 3px;
+    height: 48px;
+    border: 2px solid var(--primary);
+    padding: 0 16px !important;
+}
+
+.button-primary {
+    background-color: var(--primary);
+    color: white;
+}
+
+.button-primary:hover, .button-secondary:hover {
+    text-decoration: 2px underline;
+}
+
+.button-secondary {
+    color: var(--primary);
+    background-color: white;
+    font-weight: 600;
+}
+
+
+
+/* garante que tudo use a nossa fonte padrão */
+* {
+    font-family: "Inter", sans-serif;
+}
+
+
+/* Inicio do css da barra superior */
+a {
+    font-style: normal;
+    text-decoration: none !important;
+}
+
+.logotipo {
+    font-family: "Righteous", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    font-size: x-large;
+}
+
+.logo {
+    width: 52px;
+}
+
+.menu-superior {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 36px;
+    min-height: 84px;
+    padding: 0 24px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.menu-superior > div, .menu-superior > ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ul {
+    display: flex;
+    list-style: none;
+    gap: 24px;
+    margin: 0;;
+}
+
+.menu-superior > ul > li > a {
+    color: var(--primary);
+    padding: 8px;
+}
+
+.menu-superior > ul > li > a:hover {
+    background-color: var(--primary);
+    color: white !important;
+}
+
+.ms-buttons {
+    display: flex;
+    gap: 16px;
+}
+
+/* Inicio do css do main */
+main {
+    padding: 24px;
+    margin: auto;
+    max-width: 1200px;
+}
+
+
+/* Inicio do css do footer */
+footer {
+    background-color: var(--primary);
+    width: 100%;
+    margin: 0;
+    position: absolute;
+    bottom: 0;
+}
+
+footer > div {
+    display: flex;
+    color: white;
+    gap: 10%;
+    padding: 24px;
+    align-items: start;
+    padding: 52px 24px;
+    font-weight: 200;
+    font-size: 11pt;
+    margin: auto;
+    max-width: 1200px;
+}
+
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+}
+
+.footer-right {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.fr-1, .fr-2, .fr-3 {
+    display: flex;
+    flex-direction: column;
+}
+
+.fr-3 .form-control {
+    background-color: #ffffff47;
+    border: none;
+}
+
+.fr-3 .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.534);
+    font-size: 10pt;
+}
+
+.fr-3 .form-outline i {
+    position: relative;
+    transform: translateY(-175%);
+    pointer-events: none;
+    right: -220px;
+  }
+
+footer ul {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 0;
+    margin: 0;
+    gap: 8px;
+}
+
+footer ul a {
+    color: white;
+    padding: 8px;
+}
+
+footer ul a:hover {
+    background-color: white;
+    color: var(--primary);
+}
+
+.footer-subtitle {
+    font-weight: 600;
+    font-size: 12pt;
+    padding: 8px;
+}
+
+.fl-icons {
+    display: flex;
+    gap: 16px;
+}
+
+.fl-icons i {
+    padding: 8px;
+}
+
+.fl-icons a {
+    text-decoration: none;
+    color: white;
+}
+
+.fl-icons i:hover {
+    background-color: white;
+    color: var(--primary);
+}
