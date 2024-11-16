@@ -324,3 +324,54 @@ main {
     height: 200px;
     justify-content: center;
 }
+
+
+.card-material1{
+    background-image: url('./assets/images/biblioteca.jpeg');
+}
+
+.card-material2{
+    background-image: url('./assets/images/numeros.jpeg');
+}
+
+.card-material3{
+    background-image: url('./assets/images/globo.jpeg');
+}
+
+.card-material4{
+    background-image: url('./assets/images/cobra.jpeg');
+}
+
+
+
+.card-material-estudo{
+    z-index: 1;
+    display: flex;
+    border-radius: 20px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;  
+    max-width: 200px;
+    height: 360px;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+.materiais-conteudo{
+    background-color: #ffffff80;
+    border-radius: 20px;
+    height: 100%;
+    z-index: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    
+}
+
+.card-materiais-botões{
+    display: flex;
+    flex-direction: column;
+    }

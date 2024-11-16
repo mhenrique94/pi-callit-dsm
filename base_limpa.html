@@ -29,10 +29,43 @@
     </header>
 
 
-    <main>
-        <h1>Título da sua página aqui</h1>
-        <section>Seções/conteúdo da sua página aqui</section>
-    </main>
+<main>
+
+    <h1>Título da sua página aqui</h1>
+
+    <img src="./assets/images/logo.png" class="imagem-logo-cadastro">
+
+    <div class="row">
+        <div class="mb-3 col">
+            <label for="nome" class="form-label">Nome</label>
+            <input type="nome" class="form-control" id="nome" placeholder="Digite seu Nome Completo">
+        </div>
+
+        <div class="mb-3 col">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="Digite seu email">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="mb-3 col">
+            <label for="senha" class="form-label">Senha</label>
+            <input type="senha" class="form-control" id="senha" placeholder="Digite uma Senha">
+        </div>
+
+        <div class="mb-3 col">
+            <label for="conf_senha" class="form-label">Confirme sua Senha</label>
+            <input type="conf_senha" class="form-control" id="conf_senha" placeholder="Confirme sua sua Senha">
+        </div>
+    </div>
+
+    <p>Já possui uma conta? <a class="link-opacity-100-hover" href="#">Faça o Login</a></p>
+
+    <button class="button-primary mb-3" onclick="entrar">Prosseguir</button>
+
+    <p>Esta com dificuldades? <a class="link-opacity-100-hover" href="#">Clique aqui</a></p>
+
+</main>
 
 
     <footer>
