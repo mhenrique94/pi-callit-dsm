@@ -31,6 +31,15 @@ main{
     --primary: #A30000;
 }
 
+/*
+    Tutorial
+*/
+#Tutorial{
+    background-color: #dcd7d7;
+    padding: 30px;
+    margin-top: 40px;
+}
+
 
 /*
     Esssa é a seção de padrões. vai criar um input? botão? copiei o html da navbar e
@@ -351,7 +360,7 @@ main {
     margin-top: 1rem;
     margin-bottom: 1rem;
     background-color: white;
-    padding: 1rem; 
+    padding: 1rem;
 }
 
 #sobreplataforma h2 {
@@ -378,7 +387,7 @@ main {
     background-color: #00000033;
     margin-top: 1rem;
     margin-bottom: 1rem;
-    padding: 0.5rem; 
+    padding: 0.5rem;
 }
 
 .about-items {
