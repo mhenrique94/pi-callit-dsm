@@ -350,7 +350,7 @@ pagina noticias
     padding-bottom: 100px;
     display: flex;
     justify-content:center;
-    background-color:indianred;
+    background-color:#f9ebeb;
 }
 .newsletter__box {
     border-radius: 25px;
@@ -408,7 +408,7 @@ pagina noticias
 }
 .last_news__image {
     border-radius: 20px;
-    width: 250px;
+    width: 100%;
 }
 .last_news__title {
     font-size: 50px;
@@ -432,6 +432,7 @@ justify-content: center;
 }
 .last_news__name {
     margin: 0;
+    
 }
 .last_news__date {
     margin: 0;
