@@ -324,3 +324,103 @@ main {
     height: 200px;
     justify-content: center;
 }
+
+/* QUEM SOMOS */
+/* #sobreplataforma */
+#sobreplataforma {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background-color: white;
+    padding: 1rem; 
+}
+
+#sobreplataforma h2 {
+    font-size: 24px;
+    font-weight: 300;
+}
+
+#sobreplataforma h3 {
+    font-size: 18px;
+    margin-top: 15px;
+    font-weight: 300;
+}
+
+#sobreplataforma p {
+    font-size: 14px;
+    line-height: 1.5;
+    font-weight: 300;
+}
+
+/* #sobrecallit */
+#aboutcallit {
+    text-align: center;
+    margin-bottom: 1.25rem;
+    background-color: #00000033;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem; 
+}
+
+.about-items {
+    display: flex;
+    gap: 3rem;
+}
+
+.sub-section {
+    padding: 0 3rem;
+}
+
+#aboutcallit h2 {
+    margin-top: 2rem;
+    font-size: 1.75rem;
+}
+
+#aboutcallit h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+}
+
+#aboutcallit p {
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+/* #desenvolvedores */
+#desenvolvedores {
+    margin-bottom: 20px;
+}
+
+#desenvolvedores h2 {
+    font-size: 24px;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+#desenvolvedores .developers {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#desenvolvedores .developer-card {
+    width: 20%;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+#desenvolvedores .developer-card img {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+}
+
+#desenvolvedores .developer-card h4 {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+#desenvolvedores .developer-card p {
+    font-size: 14px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
