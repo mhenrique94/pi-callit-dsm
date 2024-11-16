@@ -3,6 +3,26 @@
 
 
 /*
+referente a pagina de cadastro
+*/
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.imagem-logo-cadastro{
+    width: 50%;
+    max-width: 240px;
+}
+
+#imputs-cadastro{
+    display: flex;
+    flex-direction: row;
+}
+
+
+/*
     Aqui definimos as variáveis para coisas que se repetem demais no css
     por exemplo, a cor primaria é a #A30000, então criamos uma variável
     com ela e usamos essa variável sempre que precisamos com var(nome_variavel)
@@ -12,7 +32,7 @@
 }
 
 /*
-    Tutorial 
+    Tutorial
 */
 #Tutorial{
     background-color: #dcd7d7;
@@ -47,6 +67,10 @@
     font-weight: 600;
 }
 
+.button-medio {
+    padding: 8px 16px !important;
+}
+
 
 
 /* garante que tudo use a nossa fonte padrão */
@@ -65,7 +89,6 @@ a {
     font-family: "Righteous", sans-serif;
     font-weight: 900;
     font-style: normal;
-    font-size: x-large;
 }
 
 .logo {
@@ -124,8 +147,6 @@ footer {
     background-color: var(--primary);
     width: 100%;
     margin: 0;
-    position: bottom;
-    bottom: 0;
 }
 
 footer > div {
@@ -217,4 +238,218 @@ footer ul a:hover {
 .fl-icons i:hover {
     background-color: white;
     color: var(--primary);
+}
+
+/*
+    Início da página principal
+*/
+main {
+    padding: 0;
+}
+
+#banner-principal {
+    padding: 10%;
+    background-image: url('./assets/images/hero.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.jumbotron {
+    background-color: #ffffff;
+    padding: 48px 24px;
+    border-radius: 24px;
+}
+
+#banner-explicativo {
+    padding: 10%;
+    background-image: url('./assets/images/banner-explicativo.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.jumbotron-explicativo {
+    background-color: #ffffff70;
+    padding: 48px 24px;
+}
+
+#banner-conteudos {
+    background-image: url('./assets/images/fundo-conteudo.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.bc-cards {
+    display: flex;
+    width: 90%;
+    justify-content: center;
+    gap: 24px;
+    margin: 36px;
+}
+
+.bcc-card {
+    height: 140px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 24px;
+}
+
+.bcc-card > i {
+    font-size: 56pt;
+}
+
+.bcc-card.light-green {
+    background-color: #B4EFAF;
+}
+
+.bcc-card.light-blue {
+    background-color: #95E2FB;
+}
+
+.bcc-card.light-pink {
+    background-color: #FC9A9A;
+}
+
+#disciplinas {
+    background-image: url('./assets/images/fundo-disciplinas.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 600px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 36px;
+}
+
+#disciplinas .buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+#pre-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 200px;
+    justify-content: center;
+}
+
+/* QUEM SOMOS */
+/* #sobreplataforma */
+#sobreplataforma {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background-color: white;
+    padding: 1rem;
+}
+
+#sobreplataforma h2 {
+    font-size: 24px;
+    font-weight: 300;
+}
+
+#sobreplataforma h3 {
+    font-size: 18px;
+    margin-top: 15px;
+    font-weight: 300;
+}
+
+#sobreplataforma p {
+    font-size: 14px;
+    line-height: 1.5;
+    font-weight: 300;
+}
+
+/* #sobrecallit */
+#aboutcallit {
+    text-align: center;
+    margin-bottom: 1.25rem;
+    background-color: #00000033;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+}
+
+.about-items {
+    display: flex;
+    gap: 3rem;
+}
+
+.sub-section {
+    padding: 0 3rem;
+}
+
+#aboutcallit h2 {
+    margin-top: 2rem;
+    font-size: 1.75rem;
+}
+
+#aboutcallit h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+}
+
+#aboutcallit p {
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+/* #desenvolvedores */
+#desenvolvedores {
+    margin-bottom: 20px;
+}
+
+#desenvolvedores h2 {
+    font-size: 24px;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+#desenvolvedores .developers {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#desenvolvedores .developer-card {
+    width: 20%;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+#desenvolvedores .developer-card img {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+}
+
+#desenvolvedores .developer-card h4 {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+#desenvolvedores .developer-card p {
+    font-size: 14px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
