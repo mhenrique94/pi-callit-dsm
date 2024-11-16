@@ -25,74 +25,91 @@
                 <li><a href="#">Fale conosco</a></li>
             </ul>
             <div class="ms-buttons">
-                <button class="button-secondary">Login</button>
-                <button class="button-primary">Cadastrar</button>
+
+                <button class="button-secondary">Entrar</button>
             </div>
         </nav>
     </header>
 
 
     <main>
-        <section id="banner-principal">
-            <div class="jumbotron">
-                <h1 class="display-4 fw-bold">Bem-vindo à <span class="logotipo">QuestãoCerta</span>!</h1>
-                <h2 class="lead">Bancos de Questões, Simulados, Informações sobre Vestibulares e Notícias do Mundo Acadêmico</>
-                <hr class="my-4">
-                <h4>
-                    Explore conteúdos de estudo e prepare-se para os vestibulares do Centro Paula Souza
-                <h4/>
-                <h4 class="fw-bold">Vestibulinho ETEC e Vestibular FATEC</h4>
-                <button class="button-primary mt-3">CADASTRE-SE!</button>
-            </div>
-        </section>
-        <section id="banner-explicativo">
-            <div class="jumbotron-explicativo">
-                <h3 class="mb-3">
-                    O QuestãoCerta é a plataforma que torna o estudo disponível para TODOS. Ela conta com tudo que você precisa para se preparar e arrasar nos vestibulares e vestibulinhos do CPS!
-                <h3/>
-                <h3>E grátis!</h3>
-            </div>
-        </section>
-        <section id="banner-conteudos">
-            <div class="bc-cards">
-                <div class="">
-                    <p class="h2">Materiais</p>
-                    <div class="bcc-card light-green"><i class="fa-solid fa-earth-americas"></i></div>
-                </div>
-                <div>
-                    <p class="h2">Questões</p>
-                    <div class="bcc-card light-blue"><i class="fa-solid fa-earth-americas"></i></div>
-                </div>
-                <div>
-                    <p class="h2">Simulados</p>
-                    <div class="bcc-card light-pink"><i class="fa-solid fa-earth-americas"></i></div>
-                </div>
+
+        <section class="banner">
+            <div>
+                <h1 class="banner__title">Notícias e novidades</h1>
+                <h2 class="banner__subtitle">Notícias e novidades fresquinhas para turbinar seus estudos!</h2>
             </div>
             <div>
-                <p class="h2">E muito mais!</p>
-                <button class="button-primary mt-3">Acessar materiais de estudo -></button>
+                <img class="banner__image" src="/Assets/Imgs/img_banner.png" alt="">
             </div>
         </section>
-        <section id="disciplinas">
-            <div class="buttons">
-                <button class="button-secondary">História -></button>
-                <button class="button-secondary">Literatura -></button>
-                <button class="button-secondary">Inglês -></button>
-                <button class="button-secondary">Filosofia -></button>
-                <button class="button-secondary">Português -></button>
-                <button class="button-secondary">Sociologia -></button>
-            </div>
-            <div class="buttons">
-                <button class="button-secondary">Matemática -></button>
-                <button class="button-secondary">Atualidades -></button>
-                <button class="button-secondary">Química -></button>
-                <button class="button-secondary">Biologia -></button>
-                <button class="button-secondary">Física -></button>
+        <section class="newsletter">
+            <div class="newsletter__box">
+                <div>
+                    <img class="newsletter__image" src="/Assets/Imgs/img_newletter.png" alt="">
+                </div>
+                <div class="newsletter__textbox">
+                    <h2 class="newsletter__title">Inscreva-se em nossa newsletter</h2>
+                    <p class="newsletter__text">Saiba em primeira mão sobre novos recursos, novos materiais e notícias do mundo dos estudos!</p>
+                    <form class="newsletter__form" action="">
+                       <input placeholder="Digite seu email" class="newsletter__input" type="email">
+                        <button class="newsletter__button">Inscreva-se</button>
+                    </form>
+                </div>
             </div>
         </section>
-        <section id="pre-footer">
-            <p class="h1">Crie já sua conta!</p>
-            <button class="button-primary mt-3">Cadastre-se -></button>
+        <section class="last_news">
+            <h1 class="last_news__title">Last news</h1>
+            <div class="last_news__gallery">
+
+                <div class="last_news__item">
+                    <img class="last_news__image" src="/Assets/Imgs/img_1.jpg" alt="">
+                    <p class="last_news__text">Revolução nos estudos: Inteligência Artificial cria planos de estudo personalizados.</p>
+                    <div class="last_news__bottom">
+                        <img class="last_news__avatar" src="/Assets/Imgs/img_chayene.jpg" alt="">
+                        <div class="last_news__avatartext">
+                            <h3 class="last_news__name">Chayene Goose</h3>
+                            <p class="last_news__date">30 Maio, 2024</p> 
+                        </div>
+                    </div>
+                </div>
+
+                <div class="last_news__item">
+                    <img class="last_news__image" src="/Assets/Imgs/img_2.jpg" alt="">
+                    <p class="last_news__text">Enem 2024: Mudanças significativas deixam candidatos em alerta.</p>
+                    <div class="last_news__bottom">
+                        <img class="last_news__avatar" src="/Assets/Imgs/img_chayene.jpg" alt="">
+                        <div class="last_news__avatartext">
+                            <h3 class="last_news__name">Chayene Goose</h3>
+                            <p class="last_news__date">30 Maio, 2024</p> 
+                        </div>
+                    </div>
+                </div>
+
+                <div class="last_news__item">
+                    <img class="last_news__image" src="/Assets/Imgs/img_3.jpg" alt="">
+                    <p class="last_news__text">Novo relatório aponta as profissões do futuro: e os vestibulandos?</p>
+                    <div class="last_news__bottom">
+                        <img class="last_news__avatar" src="/Assets/Imgs/img_chayene.jpg" alt="">
+                        <div class="last_news__avatartext">
+                            <h3 class="last_news__name">Chayene Goose</h3>
+                            <p class="last_news__date">30 Maio, 2024</p> 
+                        </div>
+                    </div>
+                </div>
+
+                <div class="last_news__item">
+                    <img class="last_news__image" src="/Assets/Imgs/img_4.jpg" alt="">
+                    <p class="last_news__text">plataformas de estudo online: a nova ferramenta dos estudantes de sucesso.</p>
+                    <div class="last_news__bottom">
+                        <img class="last_news__avatar" src="/Assets/Imgs/img_chayene.jpg" alt="">
+                        <div class="last_news__avatartext">
+                            <h3 class="last_news__name">Chayene Goose</h3>
+                            <p class="last_news__date">30 Maio, 2024</p> 
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
     </main>
