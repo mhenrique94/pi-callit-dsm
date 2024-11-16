@@ -5,12 +5,15 @@
 /*
 referente a pagina de cadastro
 */
-#cadastro{
+main{
     display: flex;
     flex-direction: column;
-    width: 30%;
-    position: center;
+    align-items: center;
     justify-content: center;
+}
+.imagem-logo-cadastro{
+    width: 50%;
+    max-width: 240px;
 }
 
 
