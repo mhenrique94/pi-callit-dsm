@@ -3,26 +3,6 @@
 
 
 /*
-referente a pagina de cadastro
-*/
-main{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-.imagem-logo-cadastro{
-    width: 50%;
-    max-width: 240px;
-}
-
-#imputs-cadastro{
-    display: flex;
-    flex-direction: row;
-}
-
-
-/*
     Aqui definimos as variáveis para coisas que se repetem demais no css
     por exemplo, a cor primaria é a #A30000, então criamos uma variável
     com ela e usamos essa variável sempre que precisamos com var(nome_variavel)
@@ -34,7 +14,7 @@ main{
 /*
     Tutorial
 */
-#Tutorial{
+#tutorial{
     background-color: #dcd7d7;
     padding: 30px;
     margin-top: 40px;
@@ -354,8 +334,27 @@ main {
     justify-content: center;
 }
 
+/*
+referente a pagina de cadastro
+*/
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.imagem-logo-cadastro{
+    width: 50%;
+    max-width: 240px;
+}
+
+#imputs-cadastro{
+    display: flex;
+    flex-direction: row;
+}
+
+
 /* QUEM SOMOS */
-/* #sobreplataforma */
 #sobreplataforma {
     margin-top: 1rem;
     margin-bottom: 1rem;
