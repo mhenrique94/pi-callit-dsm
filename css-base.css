@@ -16,6 +16,11 @@ main{
     max-width: 240px;
 }
 
+#imputs-cadastro{
+    display: flex;
+    flex-direction: row;
+}
+
 
 /*
     Aqui definimos as variáveis para coisas que se repetem demais no css
