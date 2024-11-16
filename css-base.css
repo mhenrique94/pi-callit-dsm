@@ -211,6 +211,9 @@ footer ul a:hover {
     color: var(--primary);
 }
 
+
+
+
 /*
     Início da página principal
 */
@@ -323,4 +326,17 @@ main {
     align-items: center;
     height: 200px;
     justify-content: center;
+}
+
+/* página simulado: alternativas verticais */
+
+.opcoes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#quiz-form {
+    width: 50%;
+    max-width: 500px;
 }
