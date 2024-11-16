@@ -340,3 +340,16 @@ main {
     width: 50%;
     max-width: 500px;
 }
+
+/* design do timer */
+.timer-container {
+    font-family: Arial, sans-serif;
+    float: right;
+
+}
+#timer {
+    font-size: 48px;
+    font-weight: bold;
+    color: #000;
+
+}

@@ -32,6 +32,12 @@
     </header>
 
     <main class="container">
+
+        <div class="timer-container">
+            <div>Tempo restante:</div>
+            <div id="timer">30:00</div>
+        </div>
+
         <h2>Simulado</h2>
 
         <form id="quiz-form">
@@ -75,8 +81,7 @@
     
         <p id="resultado"></p>
     
-        
-        
+   
         <script>
             function verificarResposta() {
                 const respostaCorreta = "Brasília";
@@ -102,6 +107,32 @@
                     resultado.style.color = "red";
                 }
             }
+
+            function startTimer(duration, display) {
+            let timer = duration, minutes, seconds;
+            const interval = setInterval(() => {
+                minutes = Math.floor(timer / 60);
+                seconds = timer % 60;
+                
+                // Adiciona zero à esquerda para segundos menores que 10
+                seconds = seconds < 10 ? '0' + seconds : seconds;
+
+                display.textContent = `${minutes}:${seconds}`;
+
+                if (--timer < 0) {
+                    clearInterval(interval);
+                    alert('O tempo acabou!');
+                }
+            }, 1000);
+        }
+
+        // Inicia o timer com 30 minutos
+        window.onload = () => {
+            const thirtyMinutes = 30 * 60; // 30 minutos em segundos
+            const display = document.getElementById('timer');
+            startTimer(thirtyMinutes, display);
+        };
+
         </script>
     </main>
    
@@ -153,6 +184,7 @@
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/f3828d2dcb.js" crossorigin="anonymous"></script>
     <script src="./script.js"></script>
+
 </body>
 
 </html>
