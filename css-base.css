@@ -38,6 +38,10 @@
     font-weight: 600;
 }
 
+.button-medio {
+    padding: 8px 16px !important;
+}
+
 
 
 /* garante que tudo use a nossa fonte padrão */
@@ -56,7 +60,6 @@ a {
     font-family: "Righteous", sans-serif;
     font-weight: 900;
     font-style: normal;
-    font-size: x-large;
 }
 
 .logo {
@@ -115,8 +118,6 @@ footer {
     background-color: var(--primary);
     width: 100%;
     margin: 0;
-    position: absolute;
-    bottom: 0;
 }
 
 footer > div {
@@ -208,4 +209,118 @@ footer ul a:hover {
 .fl-icons i:hover {
     background-color: white;
     color: var(--primary);
+}
+
+/*
+    Início da página principal
+*/
+main {
+    padding: 0;
+}
+
+#banner-principal {
+    padding: 10%;
+    background-image: url('./assets/images/hero.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.jumbotron {
+    background-color: #ffffff;
+    padding: 48px 24px;
+    border-radius: 24px;
+}
+
+#banner-explicativo {
+    padding: 10%;
+    background-image: url('./assets/images/banner-explicativo.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.jumbotron-explicativo {
+    background-color: #ffffff70;
+    padding: 48px 24px;
+}
+
+#banner-conteudos {
+    background-image: url('./assets/images/fundo-conteudo.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.bc-cards {
+    display: flex;
+    width: 90%;
+    justify-content: center;
+    gap: 24px;
+    margin: 36px;
+}
+
+.bcc-card {
+    height: 140px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 24px;
+}
+
+.bcc-card > i {
+    font-size: 56pt;
+}
+
+.bcc-card.light-green {
+    background-color: #B4EFAF;
+}
+
+.bcc-card.light-blue {
+    background-color: #95E2FB;
+}
+
+.bcc-card.light-pink {
+    background-color: #FC9A9A;
+}
+
+#disciplinas {
+    background-image: url('./assets/images/fundo-disciplinas.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 600px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 36px;
+}
+
+#disciplinas .buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+#pre-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 200px;
+    justify-content: center;
 }
