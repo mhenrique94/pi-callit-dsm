@@ -18,15 +18,19 @@
                 <span class="titulo logotipo">QuestãoCerta</span>
             </div>
             <ul>
-                <li><a href="#">Início</a></li>
-                <li><a href="#">Quem somos</a></li>
+                <li><a href="/">Início</a></li>
+                <li><a href="./quem-somos.html">Quem somos</a></li>
                 <li><a href="#">Notícias</a></li>
-                <li><a href="#">Materiais de estudo</a></li>
+                <li><a href="./materiais-de-estudo.html">Materiais de estudo</a></li>
                 <li><a href="#">Fale conosco</a></li>
             </ul>
             <div class="ms-buttons">
-                <button class="button-secondary">Login</button>
-                <button class="button-primary">Cadastrar</button>
+                <button class="button-secondary">
+                    <a href="./login.html">Login</a>
+                </button>
+                <button class="button-primary">
+                    <a href="./cadastro.html">Cadastrar</a>
+                </button>
             </div>
         </nav>
     </header>
@@ -43,7 +47,7 @@
         <form id="quiz-form">
             <div class="questao">
                 <p id="enunciado">Qual é a capital do Brasil?</p>
-    
+
                 <ul class="opcoes">
                     <li>
                         <label>
@@ -73,28 +77,28 @@
                 </ul>
                 <div class="row">
                     <div class="col" ><button type="button" onclick="verificarResposta()" class="button-primary">Submeter Resposta</button></div>
-                    <div class="col"><button type="button" onclick="proximaQuestao()" class="button-primary">Próxima Questão -></button></div> 
+                    <div class="col"><button type="button" onclick="proximaQuestao()" class="button-primary">Próxima Questão -></button></div>
                 </div>
             </div>
-    
+
         </form>
-    
+
         <p id="resultado"></p>
-    
-   
+
+
         <script>
             function verificarResposta() {
                 const respostaCorreta = "Brasília";
                 const opcoes = document.getElementsByName('resposta');
                 let respostaSelecionada = "";
-    
+
                 for (const opcao of opcoes) {
                     if (opcao.checked) {
                         respostaSelecionada = opcao.value;
                         break;
                     }
                 }
-    
+
                 const resultado = document.getElementById('resultado');
                 if (respostaSelecionada === "") {
                     resultado.textContent = "Por favor, selecione uma resposta.";
@@ -113,7 +117,7 @@
             const interval = setInterval(() => {
                 minutes = Math.floor(timer / 60);
                 seconds = timer % 60;
-                
+
                 // Adiciona zero à esquerda para segundos menores que 10
                 seconds = seconds < 10 ? '0' + seconds : seconds;
 
@@ -135,7 +139,7 @@
 
         </script>
     </main>
-   
+
 
 
     <footer>
@@ -154,11 +158,11 @@
                 <div class="fr-1">
                     <p class="footer-subtitle">CallIT</p>
                     <ul>
-                        <li><a href="#">Quem somos</a></li>
+                        <li><a href="./quem-somos.html">Quem somos</a></li>
                         <li><a href="#">Notícias</a></li>
-                        <li><a href="#">Materiais de estudo</a></li>
+                        <li><a href="./materiais-de-estudo.html">Materiais de estudo</a></li>
                         <li><a href="#">Fale conosco</a></li>
-                        <li><a href="#">Cadastre-se</a></li>
+                        <li><a href="./cadastro.html">Cadastre-se</a></li>
                     </ul>
                 </div>
                 <div class="fr-2">
