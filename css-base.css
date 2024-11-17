@@ -220,6 +220,9 @@ footer ul a:hover {
     color: var(--primary);
 }
 
+
+
+
 /*
     Início da página principal
 */
@@ -332,6 +335,32 @@ main {
     align-items: center;
     height: 200px;
     justify-content: center;
+}
+
+/* página simulado: alternativas verticais */
+
+.opcoes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#quiz-form {
+    width: 50%;
+    max-width: 500px;
+}
+
+/* design do timer */
+.timer-container {
+    font-family: Arial, sans-serif;
+    float: right;
+
+}
+#timer {
+    font-size: 48px;
+    font-weight: bold;
+    color: #000;
+
 }
 
 
