@@ -47,7 +47,7 @@ function isLoggedIn() {
 
 let questoes = []
 let questaoAtual = 0
-let numQuestoesSimulado = 5
+let numQuestoesSimulado = 10
 async function carregarQuestoes() {
   try {
     const response = await fetch("./assets/questoes.json")
