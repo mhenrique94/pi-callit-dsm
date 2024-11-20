@@ -47,6 +47,7 @@ function isLoggedIn() {
 
 let questoes = []
 let questaoAtual = 0
+let numQuestoesSimulado = 5
 async function carregarQuestoes() {
   try {
     const response = await fetch("./assets/questoes.json")
@@ -102,7 +103,7 @@ function verificarResposta() {
   desabilitarBotaoResponder()
 }
 function proximaQuestao() {
-  if (questaoAtual < 5) {
+  if (questaoAtual < numQuestoesSimulado) {
     questaoAtual++
     carregarQuestao()
     habilitarBotaoResponder()
@@ -110,14 +111,23 @@ function proximaQuestao() {
     calcularNota()
   }
 }
+
+function sumirComQuestoes() {
+  document.getElementById("quiz-form").style.display = 'none'
+}
+
 function calcularNota() {
   let nota = 0
   debugger
-  for (let i = 0; i < questoes.questoes.length; i++) {
+  desabilitarBotaoResponder()
+  sumirComQuestoes()
+  for (let i = 0; i < numQuestoesSimulado; i++) {
     nota += parseInt(recuperarInformacao(`resposta_${i}`), 10)
   }
-  document.getElementById("resultado").innerText =
-    `Sua nota final é: ${nota}/${questoes.questoes.length}`
+  document.getElementById("resultado-valor").innerText =
+    `${nota}/${numQuestoesSimulado}`
+
+    document.querySelector('.resultado').style.display = "block"
 }
 
 
