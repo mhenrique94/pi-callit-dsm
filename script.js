@@ -1,9 +1,26 @@
+function startTimer(duration, display) {
+  let timer = duration, minutes, seconds
+  const interval = setInterval(() => {
+      minutes = Math.floor(timer / 60)
+      seconds = timer % 60
+      seconds = seconds < 10 ? '0' + seconds : seconds
 
+      display.textContent = `${minutes}:${seconds}`
+
+      if (--timer < 0) {
+          clearInterval(interval)
+          alert('O tempo acabou!')
+      }
+  }, 1000)
+}
 
 // Inicializa a primeira questão ao carregar a página
 document.addEventListener('DOMContentLoaded', async (event) => {
   await carregarQuestoes()
   carregarQuestao()
+  const thirtyMinutes = 30 * 60
+  const display = document.getElementById('timer')
+  startTimer(thirtyMinutes, display)
 })
 
 // Função Genérica de Recuperação de Informação
@@ -129,5 +146,4 @@ function calcularNota() {
 
     document.querySelector('.resultado').style.display = "block"
 }
-
 
