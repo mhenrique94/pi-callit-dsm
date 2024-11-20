@@ -9,7 +9,7 @@ function startTimer(duration, display) {
 
       if (--timer < 0) {
           clearInterval(interval)
-          alert('O tempo acabou!')
+          calcularNota()
       }
   }, 1000)
 }
@@ -135,7 +135,6 @@ function sumirComQuestoes() {
 
 function calcularNota() {
   let nota = 0
-  debugger
   desabilitarBotaoResponder()
   sumirComQuestoes()
   for (let i = 0; i < numQuestoesSimulado; i++) {
