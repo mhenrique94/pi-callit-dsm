@@ -549,6 +549,17 @@ referente a pagina de cadastro
     margin-right: 10px;
 }
 
+.row-mensagem{
+    width: 67%;
+    
+}
+
+.cc-address{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
 /* Materiais de Estudo */
  
 .materiais-cabecalho{
