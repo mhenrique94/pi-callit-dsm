@@ -11,6 +11,15 @@
     --primary: #A30000;
 }
 
+/*
+    Tutorial
+*/
+#tutorial{
+    background-color: #dcd7d7;
+    padding: 30px;
+    margin-top: 40px;
+}
+
 
 /*
     Esssa é a seção de padrões. vai criar um input? botão? copiei o html da navbar e
@@ -118,6 +127,7 @@ footer {
     background-color: var(--primary);
     width: 100%;
     margin: 0;
+
 }
 
 footer > div {
@@ -210,6 +220,9 @@ footer ul a:hover {
     background-color: white;
     color: var(--primary);
 }
+
+
+
 
 /*
     Início da página principal
@@ -437,3 +450,348 @@ justify-content: center;
 .last_news__date {
     margin: 0;
 }
+
+
+/* página simulado: alternativas verticais */
+
+.opcoes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#quiz-form {
+    width: 50%;
+    max-width: 500px;
+}
+
+.resultado {
+    display: none;
+}
+
+#resultado {
+    height: 300px;
+    width: 400px;
+    border: 1px solid #c1c1c1;
+    border-radius: 16px;
+    margin: 24px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* design do timer */
+.timer-container {
+    font-family: Arial, sans-serif;
+    float: right;
+
+}
+#timer {
+    font-size: 48px;
+    font-weight: bold;
+    color: #000;
+
+}
+
+
+.card-material1{
+    background-image: url('./assets/images/biblioteca.jpeg');
+}
+
+.card-material2{
+    background-image: url('./assets/images/numeros.jpeg');
+}
+
+.card-material3{
+    background-image: url('./assets/images/globo.jpeg');
+}
+
+.card-material4{
+    background-image: url('./assets/images/cobra.jpeg');
+}
+
+
+
+.card-material-estudo{
+    z-index: 1;
+    display: flex;
+    border-radius: 20px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    max-width: 200px;
+    height: 360px;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+.materiais-conteudo{
+    background-color: #ffffff80;
+    border-radius: 20px;
+    height: 100%;
+    z-index: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+
+}
+
+.card-materiais-botões{
+    display: flex;
+    flex-direction: column;
+    }
+
+/*
+referente a pagina de cadastro
+*/
+.cadastro-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.imagem-logo-cadastro{
+    width: 50%;
+    max-width: 240px;
+}
+
+#imputs-cadastro{
+    display: flex;
+    flex-direction: row;
+}
+
+
+/* QUEM SOMOS */
+#sobreplataforma {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background-color: white;
+    padding: 1rem;
+}
+
+#sobreplataforma h2 {
+    font-size: 24px;
+    font-weight: 300;
+}
+
+#sobreplataforma h3 {
+    font-size: 18px;
+    margin-top: 15px;
+    font-weight: 300;
+}
+
+#sobreplataforma p {
+    font-size: 14px;
+    line-height: 1.5;
+    font-weight: 300;
+}
+
+/* #sobrecallit */
+#aboutcallit {
+    text-align: center;
+    margin-bottom: 1.25rem;
+    background-color: #00000033;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+}
+
+.about-items {
+    display: flex;
+    gap: 3rem;
+}
+
+.sub-section {
+    padding: 0 3rem;
+}
+
+#aboutcallit h2 {
+    margin-top: 2rem;
+    font-size: 1.75rem;
+}
+
+#aboutcallit h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+}
+
+#aboutcallit p {
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+/* #desenvolvedores */
+#desenvolvedores {
+    margin-bottom: 20px;
+}
+
+#desenvolvedores h2 {
+    font-size: 24px;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+#desenvolvedores .developers {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#desenvolvedores .developer-card {
+    width: 20%;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+#desenvolvedores .developer-card img {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+}
+
+#desenvolvedores .developer-card h4 {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+#desenvolvedores .developer-card p {
+    font-size: 14px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.area-estudante{
+    display: flex;
+    height: 200px;
+    padding: 30px;
+    margin: 30px auto !important;
+    max-width: 800px;
+    
+}
+
+.area-estudante a,.area-estudante a div{
+    height: 100%;
+}
+
+.menu-estudantes1{
+    background-image: url("./assets/images/livro\ verde.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    max-width: 200px;
+    margin: auto;
+    padding: 30px;
+    border-radius: 20px;
+    }
+
+.menu-estudantes2{
+    background-image: url("./assets/images/livro\ azul.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    max-width: 200px;
+    margin: auto;
+    padding: 30px;
+    border-radius: 20px;
+    }
+
+.menu-estudantes3{
+    background-image: url("./assets/images/livro\ rosa.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    max-width: 200px;
+    margin: auto;
+    padding: 30px;
+    border-radius: 20px;
+    }
+
+.img-matematica{
+    background-image: url("./assets/images/numeros\ verde.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    text-shadow: 4px 2px 4px black;
+
+}
+
+.button-matematica{
+    display:flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: start;
+    max-width: 1000px;
+    margin: 24px auto ;
+       
+    
+}
+
+.button-matematica .flex-row button{
+    width: 100%;
+}
+
+.button-matematica .flex-row{
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.row-mensagem{
+    width: 67%;
+    
+}
+
+.cc-address{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+/* Materiais de Estudo */
+ 
+.materiais-cabecalho{
+color:#000;
+background-color: #f1f1f1;
+padding: 20px;
+text-align: center;
+font-family: Arial, sans-serif;}
+
+.materiais-conteudo{
+    color:#000;
+    margin: 20px;
+    background-color: #e0e0e0;
+    padding: 20px;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+    font-family: Arial, sans-serif; color: #555;
+        
+}
+
+.materiais-titulo{
+    color: #000;
+}
+
+.materiais-button{
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 20px 0;}
+
+

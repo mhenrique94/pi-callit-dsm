@@ -20,7 +20,7 @@
             <ul>
                 <li><a href="/">Início</a></li>
                 <li><a href="./quem-somos.html">Quem somos</a></li>
-                <li><a href="./noticias.html">Notícias</a></li>
+                <li><a href="#">Notícias</a></li>
                 <li><a href="./materiais-de-estudo.html">Materiais de estudo</a></li>
                 <li><a href="./fale-conosco.html">Fale conosco</a></li>
             </ul>
@@ -35,76 +35,35 @@
         </nav>
     </header>
 
+    <main class="container">
 
-    <main>
-        <section id="banner-principal">
-            <div class="jumbotron">
-                <h1 class="display-4 fw-bold">Bem-vindo à <span class="logotipo">QuestãoCerta</span>!</h1>
-                <h2 class="lead">Bancos de Questões, Simulados, Informações sobre Vestibulares e Notícias do Mundo Acadêmico</>
-                <hr class="my-4">
-                <h4>
-                    Explore conteúdos de estudo e prepare-se para os vestibulares do Centro Paula Souza
-                </h4>
-                <h4 class="fw-bold">Vestibulinho ETEC e Vestibular FATEC</h4>
-                <button class="button-primary mt-3">CADASTRE-SE!</button>
-            </div>
-        </section>
-        <section id="banner-explicativo">
-            <div class="jumbotron-explicativo">
-                <h3 class="mb-3">
-                    O QuestãoCerta é a plataforma que torna o estudo disponível para TODOS. Ela conta com tudo que você precisa para se preparar e arrasar nos vestibulares e vestibulinhos do CPS!
-                </h3>
-                <h3>E grátis!</h3>
-            </div>
-        </section>
-        <section id="banner-conteudos">
-            <div class="bc-cards">
-                <a href="./materiais-de-estudo.html">
-                    <div>
-                        <p class="h2">Materiais</p>
-                        <div class="bcc-card light-green"><i class="fa-solid fa-earth-americas"></i></div>
-                    </div>
-                </a>
-                <div>
-                    <p class="h2">Questões</p>
-                    <div class="bcc-card light-blue"><i class="fa-solid fa-earth-americas"></i></div>
+        <div class="timer-container">
+            <div>Tempo restante:</div>
+            <div id="timer">30:00</div>
+        </div>
+
+        <h2>Simulado</h2>
+
+        <form id="quiz-form">
+            <div class="questao">
+                <p id="enunciado">Qual é a capital do Brasil?</p>
+                <ul class="opcoes"></ul>
+                <div class="row">
+                    <div class="col"><button type="button" id="btn-responder" onclick="verificarResposta()" class="button-primary">Submeter Resposta</button></div>
+                    <div class="col"><button type="button" onclick="proximaQuestao()" id="btn-prox" class="button-primary">Próxima Questão -></button></div>
                 </div>
-                <a href="./simulado.html">
-                    <div>
-                        <p class="h2">Simulados</p>
-                        <div class="bcc-card light-pink"><i class="fa-solid fa-earth-americas"></i></div>
-                    </div>
-                </a>
             </div>
-            <div>
-                <p class="h2">E muito mais!</p>
-                <button class="button-primary mt-3">Acessar materiais de estudo -></button>
+        </form>
+        <div class="resultado container">
+            <div id="resultado">
+                <h2>Seu resultado:</h2>
+                <h3 id="resultado-valor">Valor aqui</>
             </div>
-        </section>
-        <section id="disciplinas">
-            <div class="buttons">
-                <button class="button-secondary">História -></button>
-                <button class="button-secondary">Literatura -></button>
-                <button class="button-secondary">Inglês -></button>
-                <button class="button-secondary">Filosofia -></button>
-                <button class="button-secondary">Português -></button>
-                <button class="button-secondary">Sociologia -></button>
-            </div>
-            <div class="buttons">
-                <button class="button-secondary">Matemática -></button>
-                <button class="button-secondary">Atualidades -></button>
-                <button class="button-secondary">Química -></button>
-                <button class="button-secondary">Biologia -></button>
-                <button class="button-secondary">Física -></button>
-            </div>
-        </section>
-        <section id="pre-footer">
-            <p class="h1">Crie já sua conta!</p>
-            <button class="button-primary mt-3">
-                <a href="./cadastro.html">Cadastre-se -></a>
-            </button>
-        </section>
+        </div>
     </main>
+
+
+
     <footer>
         <div>
             <div class="footer-left">
@@ -151,6 +110,7 @@
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/f3828d2dcb.js" crossorigin="anonymous"></script>
     <script src="./script.js"></script>
+
 </body>
 
 </html>
