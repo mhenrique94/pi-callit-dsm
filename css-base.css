@@ -532,3 +532,14 @@ referente a pagina de cadastro
     margin-left: 10px;
     margin-right: 10px;
 }
+
+.row-mensagem{
+    width: 67%;
+    
+}
+
+.cc-address{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
