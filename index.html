@@ -18,11 +18,11 @@
                 <span class="titulo logotipo">QuestãoCerta</span>
             </div>
             <ul>
-                <li><a href="/">Início</a></li>
                 <li><a href="./quem-somos.html">Quem somos</a></li>
                 <li><a href="./noticias.html">Notícias</a></li>
                 <li><a href="./materiais-de-estudo.html">Materiais de estudo</a></li>
                 <li><a href="./fale-conosco.html">Fale conosco</a></li>
+                <li style="display: none;" id="atalho-area-estudante"><a href="./area-estudante.html">Minha área</a></li>
             </ul>
             <div class="ms-buttons">
                 <button class="button-secondary">
@@ -46,7 +46,9 @@
                     Explore conteúdos de estudo e prepare-se para os vestibulares do Centro Paula Souza
                 </h4>
                 <h4 class="fw-bold">Vestibulinho ETEC e Vestibular FATEC</h4>
-                <button class="button-primary mt-3">CADASTRE-SE!</button>
+                <a href="./cadastro.html">
+                    <button class="button-primary mt-3" id="botao-cadastro-banner">CADASTRE-SE!</button>
+                </a>
             </div>
         </section>
         <section id="banner-explicativo">
@@ -59,26 +61,25 @@
         </section>
         <section id="banner-conteudos">
             <div class="bc-cards">
-                <a href="./materiais-de-estudo.html">
-                    <div>
-                        <p class="h2">Materiais</p>
-                        <div class="bcc-card light-green"><i class="fa-solid fa-earth-americas"></i></div>
-                    </div>
-                </a>
+                <div>
+                    <p class="h2">Materiais</p>
+                    <div class="bcc-card light-green"><i class="fa-solid fa-book-bookmark"></i></div>
+                </div>
                 <div>
                     <p class="h2">Questões</p>
-                    <div class="bcc-card light-blue"><i class="fa-solid fa-earth-americas"></i></div>
+                    <div class="bcc-card light-blue"><i class="fa-solid fa-question"></i></div>
                 </div>
-                <a href="./simulado.html">
-                    <div>
-                        <p class="h2">Simulados</p>
-                        <div class="bcc-card light-pink"><i class="fa-solid fa-earth-americas"></i></div>
-                    </div>
-                </a>
+
+                <div>
+                    <p class="h2">Simulados</p>
+                    <div class="bcc-card light-pink"><i class="fa-solid fa-file-circle-check"></i></div>
+                </div>
             </div>
             <div>
                 <p class="h2">E muito mais!</p>
-                <button class="button-primary mt-3">Acessar materiais de estudo -></button>
+                <a href="./materiais-de-estudo.html">
+                    <button class="button-primary mt-3">Acessar materiais de estudo -></button>
+                </a>
             </div>
         </section>
         <section id="disciplinas">
@@ -91,7 +92,9 @@
                 <button class="button-secondary">Sociologia -></button>
             </div>
             <div class="buttons">
-                <button class="button-secondary">Matemática -></button>
+                <a href="./matematica.html">
+                    <button class="button-secondary">Matemática -></button>
+                </a>
                 <button class="button-secondary">Atualidades -></button>
                 <button class="button-secondary">Química -></button>
                 <button class="button-secondary">Biologia -></button>
