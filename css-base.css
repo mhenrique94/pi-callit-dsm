@@ -548,3 +548,35 @@ referente a pagina de cadastro
     margin-left: 10px;
     margin-right: 10px;
 }
+
+/* Materiais de Estudo */
+ 
+.materiais-cabecalho{
+color:#000;
+background-color: #f1f1f1;
+padding: 20px;
+text-align: center;
+font-family: Arial, sans-serif;}
+
+.materiais-conteudo{
+    color:#000;
+    margin: 20px;
+    background-color: #e0e0e0;
+    padding: 20px;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+    font-family: Arial, sans-serif; color: #555;
+        
+}
+
+.materiais-titulo{
+    color: #000;
+}
+
+.materiais-button{
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 20px 0;}
+
+
