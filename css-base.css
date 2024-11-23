@@ -350,6 +350,22 @@ main {
     max-width: 500px;
 }
 
+.resultado {
+    display: none;
+}
+
+#resultado {
+    height: 300px;
+    width: 400px;
+    border: 1px solid #c1c1c1;
+    border-radius: 16px;
+    margin: 24px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 /* design do timer */
 .timer-container {
     font-family: Arial, sans-serif;

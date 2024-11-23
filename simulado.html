@@ -47,97 +47,19 @@
         <form id="quiz-form">
             <div class="questao">
                 <p id="enunciado">Qual é a capital do Brasil?</p>
-
-                <ul class="opcoes">
-                    <li>
-                        <label>
-                            <input type="radio" name="resposta" value="São Paulo"> São Paulo
-                        </label>
-                    </li>
-                    <li>
-                        <label>
-                            <input type="radio" name="resposta" value="Rio de Janeiro"> Rio de Janeiro
-                        </label>
-                    </li>
-                    <li>
-                        <label>
-                            <input type="radio" name="resposta" value="Brasília"> Brasília
-                        </label>
-                    </li>
-                    <li>
-                        <label>
-                            <input type="radio" name="resposta" value="Salvador"> Salvador
-                        </label>
-                    </li>
-                    <li>
-                        <label>
-                            <input type="radio" name="resposta" value="Belo Horizonte"> Belo Horizonte
-                        </label>
-                    </li>
-                </ul>
+                <ul class="opcoes"></ul>
                 <div class="row">
-                    <div class="col" ><button type="button" onclick="verificarResposta()" class="button-primary">Submeter Resposta</button></div>
-                    <div class="col"><button type="button" onclick="proximaQuestao()" class="button-primary">Próxima Questão -></button></div>
+                    <div class="col"><button type="button" id="btn-responder" onclick="verificarResposta()" class="button-primary">Submeter Resposta</button></div>
+                    <div class="col"><button type="button" onclick="proximaQuestao()" id="btn-prox" class="button-primary">Próxima Questão -></button></div>
                 </div>
             </div>
-
         </form>
-
-        <p id="resultado"></p>
-
-
-        <script>
-            function verificarResposta() {
-                const respostaCorreta = "Brasília";
-                const opcoes = document.getElementsByName('resposta');
-                let respostaSelecionada = "";
-
-                for (const opcao of opcoes) {
-                    if (opcao.checked) {
-                        respostaSelecionada = opcao.value;
-                        break;
-                    }
-                }
-
-                const resultado = document.getElementById('resultado');
-                if (respostaSelecionada === "") {
-                    resultado.textContent = "Por favor, selecione uma resposta.";
-                    resultado.style.color = "red";
-                } else if (respostaSelecionada === respostaCorreta) {
-                    resultado.textContent = "Resposta correta!";
-                    resultado.style.color = "green";
-                } else {
-                    resultado.textContent = "Resposta incorreta. Tente novamente.";
-                    resultado.style.color = "red";
-                }
-            }
-
-            function startTimer(duration, display) {
-            let timer = duration, minutes, seconds;
-            const interval = setInterval(() => {
-                minutes = Math.floor(timer / 60);
-                seconds = timer % 60;
-
-                // Adiciona zero à esquerda para segundos menores que 10
-                seconds = seconds < 10 ? '0' + seconds : seconds;
-
-                display.textContent = `${minutes}:${seconds}`;
-
-                if (--timer < 0) {
-                    clearInterval(interval);
-                    alert('O tempo acabou!');
-                }
-            }, 1000);
-        }
-
-        // Inicia o timer com 30 minutos
-        window.onload = () => {
-            const thirtyMinutes = 30 * 60; // 30 minutos em segundos
-            const display = document.getElementById('timer');
-            startTimer(thirtyMinutes, display);
-        };
-
-        </script>
+        <div class="resultado container">
+            <div id="resultado">
+                <h2>Seu resultado:</h2>
+                <h3 id="resultado-valor">Valor aqui</>
+            </div>
+        </div>
     </main>
 
 
