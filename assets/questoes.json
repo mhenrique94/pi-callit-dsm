@@ -1,0 +1,524 @@
+{
+  "questoes": [
+    {
+      "enunciado": "Qual foi o marco inicial da Idade Moderna?",
+      "opcoes": {
+        "a": "Queda do Império Romano",
+        "b": "Descobrimento da América",
+        "c": "Revolução Francesa",
+        "d": "Revolução Industrial",
+        "e": "Queda de Constantinopla"
+      },
+      "resposta_correta": "e",
+      "modalidade": "ETEC",
+      "eixo_tecnologico": "História"
+    },
+    {
+      "enunciado": "Quem é o autor de 'Dom Casmurro'?",
+      "opcoes": {
+        "a": "José de Alencar",
+        "b": "Carlos Drummond de Andrade",
+        "c": "Machado de Assis",
+        "d": "Jorge Amado",
+        "e": "Clarice Lispector"
+      },
+      "resposta_correta": "c",
+      "modalidade": "ETEC",
+      "eixo_tecnologico": "Literatura"
+    },
+    {
+      "enunciado": "What is the past tense of the verb 'to go'?",
+      "opcoes": {
+        "a": "Goed",
+        "b": "Went",
+        "c": "Go",
+        "d": "Going",
+        "e": "Gone"
+      },
+      "resposta_correta": "b",
+      "modalidade": "ETEC",
+      "eixo_tecnologico": "Inglês"
+    },
+    {
+      "enunciado": "Quem é conhecido como o 'pai da filosofia moderna'?",
+      "opcoes": {
+        "a": "Sócrates",
+        "b": "Platão",
+        "c": "Aristóteles",
+        "d": "Descartes",
+        "e": "Nietzsche"
+      },
+      "resposta_correta": "d",
+      "modalidade": "ETEC",
+      "eixo_tecnologico": "Filosofia"
+    },
+    {
+      "enunciado": "Qual é o tempo verbal da frase 'Eu estudarei amanhã'?",
+      "opcoes": {
+        "a": "Pretérito perfeito",
+        "b": "Pretérito imperfeito",
+        "c": "Presente",
+        "d": "Futuro do presente",
+        "e": "Futuro do pretérito"
+      },
+      "resposta_correta": "d",
+      "modalidade": "FATEC",
+      "eixo_tecnologico": "Português"
+    },
+    {
+      "enunciado": "Qual sociólogo é famoso por seu estudo sobre o suicídio?",
+      "opcoes": {
+        "a": "Max Weber",
+        "b": "Émile Durkheim",
+        "c": "Karl Marx",
+        "d": "Auguste Comte",
+        "e": "Pierre Bourdieu"
+      },
+      "resposta_correta": "b",
+      "modalidade": "ETEC",
+      "eixo_tecnologico": "Sociologia"
+    },
+    {
+      "enunciado": "Qual é o valor de π (pi) aproximadamente?",
+      "opcoes": {
+        "a": "3,14",
+        "b": "2,71",
+        "c": "1,62",
+        "d": "1,41",
+        "e": "3,67"
+      },
+      "resposta_correta": "a",
+      "modalidade": "FATEC",
+      "eixo_tecnologico": "Matemática"
+    },
+    {
+      "enunciado": "Qual cidade sediou as Olimpíadas de 2021?",
+      "opcoes": {
+        "a": "Pequim",
+        "b": "Londres",
+        "c": "Tóquio",
+        "d": "Paris",
+        "e": "Rio de Janeiro"
+      },
+      "resposta_correta": "c",
+      "modalidade": "FATEC",
+      "eixo_tecnologico": "Atualidades"
+    },
+    {
+      "enunciado": "Qual é o elemento químico mais abundante no universo?",
+      "opcoes": {
+        "a": "Oxigênio",
+        "b": "Hidrogênio",
+        "c": "Carbono",
+        "d": "Hélio",
+        "e": "Nitrogênio"
+      },
+      "resposta_correta": "b",
+      "modalidade": "FATEC",
+      "eixo_tecnologico": "Química"
+    },
+    {
+      "enunciado": "Qual processo é responsável pela produção de energia nas células?",
+      "opcoes": {
+        "a": "Fotossíntese",
+        "b": "Fermentação",
+        "c": "Respiração celular",
+        "d": "Divisão celular",
+        "e": "Metabolismo"
+      },
+      "resposta_correta": "c",
+      "modalidade": "FATEC",
+      "eixo_tecnologico": "Biologia"
+    },
+    {
+      "enunciado": "Em que ano ocorreu a Revolução Russa?",
+      "opcoes": {
+        "a": "1914",
+        "b": "1917",
+        "c": "1923",
+        "d": "1939",
+        "e": "1945"
+      },
+      "resposta_correta": "b",
+      "modalidade": "ETEC",
+      "eixo_tecnologico": "História"
+    },
+    {
+      "enunciado": "Qual é a obra mais famosa de William Shakespeare?",
+      "opcoes": {
+        "a": "Macbeth",
+        "b": "Hamlet",
+        "c": "Romeo and Juliet",
+        "d": "Othello",
+        "e": "A Midsummer Night's Dream"
+      },
+      "resposta_correta": "c",
+      "modalidade": "ETEC",
+      "eixo_tecnologico": "Literatura"
+    },
+    {
+      "enunciado": "What is the superlative form of the adjective 'good'?",
+      "opcoes": {
+        "a": "Goodest",
+        "b": "Best",
+        "c": "Better",
+        "d": "Most good",
+        "e": "Good"
+      },
+      "resposta_correta": "b",
+      "modalidade": "ETEC",
+      "eixo_tecnologico": "Inglês"
+    },
+    {
+      "enunciado": "Quem escreveu 'A República'?",
+      "opcoes": {
+        "a": "Aristóteles",
+        "b": "Platão",
+        "c": "Sócrates",
+        "d": "Nietzsche",
+        "e": "Kant"
+      },
+      "resposta_correta": "b",
+      "modalidade": "FATEC",
+      "eixo_tecnologico": "Filosofia"
+    },
+    {
+      "enunciado": "Qual é a função do pronome relativo 'que' na frase 'O livro que eu li é interessante'?",
+      "opcoes": {
+        "a": "Sujeito",
+        "b": "Objeto direto",
+        "c": "Objeto indireto",
+        "d": "Adjunto adverbial",
+        "e": "Adjunto adnominal"
+      },
+      "resposta_correta": "b",
+      "modalidade": "ETEC",
+      "eixo_tecnologico": "Português"
+    },
+    {
+      "enunciado": "Qual conceito é central à teoria de Karl Marx?",
+      "opcoes": {
+        "a": "Fato social",
+        "b": "Capitalismo",
+        "c": "Estrutura social",
+        "d": "Anomia",
+        "e": "Desenvolvimento social"
+      },
+      "resposta_correta": "b",
+      "modalidade": "FATEC",
+      "eixo_tecnologico": "Sociologia"
+    },
+    {
+      "enunciado": "Qual é a solução da equação (2x + 3 = 7)?",
+      "opcoes": {
+        "a": "x = 1",
+        "b": "x = 2",
+        "c": "x = 3",
+        "d": "x = 4",
+        "e": "x = 5"
+      },
+      "resposta_correta": "b",
+      "modalidade": "ETEC",
+      "eixo_tecnologico": "Matemática"
+    },
+    {
+      "enunciado": "Qual país saiu da União Europeia em 2020?",
+      "opcoes": {
+        "a": "França",
+        "b": "Alemanha",
+        "c": "Reino Unido",
+        "d": "Itália",
+        "e": "Espanha"
+      },
+      "resposta_correta": "c",
+      "modalidade": "ETEC",
+      "eixo_tecnologico": "Atualidades"
+    },
+    {
+      "enunciado": "Qual é o número atômico do carbono?",
+      "opcoes": {
+        "a": "6",
+        "b": "8",
+        "c": "12",
+        "d": "14",
+        "e": "16"
+      },
+      "resposta_correta": "a",
+      "modalidade": "FATEC",
+      "eixo_tecnologico": "Química"
+    },
+    {
+      "enunciado": "Qual parte da célula é responsável pela produção de energia?",
+      "opcoes": {
+        "a": "Núcleo",
+        "b": "Ribossomos",
+        "c": "Mitocôndria",
+        "d": "Cloroplasto",
+        "e": "Lisossomo"
+      },
+      "resposta_correta": "c",
+      "modalidade": "ETEC",
+      "eixo_tecnologico": "Biologia"
+    },
+    {
+      "enunciado": "Quem foi o primeiro presidente do Brasil?",
+      "opcoes": {
+        "a": "Getúlio Vargas",
+        "b": "Juscelino Kubitschek",
+        "c": "Deodoro da Fonseca",
+        "d": "Dom Pedro II",
+        "e": "Floriano Peixoto"
+      },
+      "resposta_correta": "c",
+      "modalidade": "ETEC",
+      "eixo_tecnologico": "História"
+    },
+    {
+      "enunciado": "Qual é o título da famosa obra de George Orwell que retrata uma sociedade totalitária?",
+      "opcoes": {
+        "a": "Admirável Mundo Novo",
+        "b": "Fahrenheit 451",
+        "c": "1984",
+        "d": "A Revolução dos Bichos",
+        "e": "O Senhor dos Anéis"
+      },
+      "resposta_correta": "c",
+      "modalidade": "ETEC",
+      "eixo_tecnologico": "Literatura"
+    },
+    {
+      "enunciado": "Which word is an antonym of 'happy'?",
+      "opcoes": {
+        "a": "Sad",
+        "b": "Joyful",
+        "c": "Excited",
+        "d": "Elated",
+        "e": "Cheerful"
+      },
+      "resposta_correta": "a",
+      "modalidade": "ETEC",
+      "eixo_tecnologico": "Inglês"
+    },
+    {
+      "enunciado": "Qual filósofo desenvolveu o conceito de 'Eterno Retorno'?",
+      "opcoes": {
+        "a": "Friedrich Nietzsche",
+        "b": "Immanuel Kant",
+        "c": "Arthur Schopenhauer",
+        "d": "René Descartes",
+        "e": "Georg Hegel"
+      },
+      "resposta_correta": "a",
+      "modalidade": "FATEC",
+      "eixo_tecnologico": "Filosofia"
+    },
+    {
+      "enunciado": "Qual das seguintes frases está na voz passiva?",
+      "opcoes": {
+        "a": "O professor explicou a matéria.",
+        "b": "A matéria foi explicada pelo professor.",
+        "c": "Os alunos fazem os exercícios.",
+        "d": "Eu estou estudando.",
+        "e": "Eles irão ao cinema."
+      },
+      "resposta_correta": "b",
+      "modalidade": "FATEC",
+      "eixo_tecnologico": "Português"
+    },
+    {
+      "enunciado": "Qual sociólogo é conhecido por sua teoria da 'Ação Social'?",
+      "opcoes": {
+        "a": "Karl Marx",
+        "b": "Émile Durkheim",
+        "c": "Max Weber",
+        "d": "Auguste Comte",
+        "e": "Herbert Spencer"
+      },
+      "resposta_correta": "c",
+      "modalidade": "FATEC",
+      "eixo_tecnologico": "Sociologia"
+    },
+    {
+      "enunciado": "Qual é a derivada da função (f(x) = x^2)?",
+      "opcoes": {
+        "a": "2x",
+        "b": "x",
+        "c": "x^2",
+        "d": "2",
+        "e": "0"
+      },
+      "resposta_correta": "a",
+      "modalidade": "FATEC",
+      "eixo_tecnologico": "Matemática"
+    },
+    {
+      "enunciado": "Qual país sediou a Copa do Mundo FIFA em 2018?",
+      "opcoes": {
+        "a": "Brasil",
+        "b": "Alemanha",
+        "c": "Rússia",
+        "d": "França",
+        "e": "Espanha"
+      },
+      "resposta_correta": "c",
+      "modalidade": "ETEC",
+      "eixo_tecnologico": "Atualidades"
+    },
+    {
+      "enunciado": "Qual é a fórmula química da água?",
+      "opcoes": {
+        "a": "CO2",
+        "b": "H2O",
+        "c": "O2",
+        "d": "NaCl",
+        "e": "C6H12O6"
+      },
+      "resposta_correta": "b",
+      "modalidade": "ETEC",
+      "eixo_tecnologico": "Química"
+    },
+    {
+      "enunciado": "Qual é o nome da estrutura que transporta água e nutrientes das raízes para o restante da planta?",
+      "opcoes": {
+        "a": "Floema",
+        "b": "Xilema",
+        "c": "Estoma",
+        "d": "Cloroplasto",
+        "e": "Mitocôndria"
+      },
+      "resposta_correta": "b",
+      "modalidade": "ETEC",
+      "eixo_tecnologico": "Biologia"
+    },
+    {
+      "enunciado": "Quem foi o responsável pela Teoria da Relatividade?",
+      "opcoes": {
+        "a": "Isaac Newton",
+        "b": "Galileo Galilei",
+        "c": "Nikola Tesla",
+        "d": "Albert Einstein",
+        "e": "Marie Curie"
+      },
+      "resposta_correta": "d",
+      "modalidade": "FATEC",
+      "eixo_tecnologico": "Física"
+    },
+    {
+      "enunciado": "Quem escreveu 'O Morro dos Ventos Uivantes'?",
+      "opcoes": {
+        "a": "Jane Austen",
+        "b": "Emily Brontë",
+        "c": "Charlotte Brontë",
+        "d": "Mary Shelley",
+        "e": "Louisa May Alcott"
+      },
+      "resposta_correta": "b",
+      "modalidade": "FATEC",
+      "eixo_tecnologico": "Literatura"
+    },
+    {
+      "enunciado": "What is the opposite of 'increase'?",
+      "opcoes": {
+        "a": "Expand",
+        "b": "Decrease",
+        "c": "Enhance",
+        "d": "Ascend",
+        "e": "Inflate"
+      },
+      "resposta_correta": "b",
+      "modalidade": "ETEC",
+      "eixo_tecnologico": "Inglês"
+    },
+    {
+      "enunciado": "Qual é o nome do filósofo grego que foi aluno de Sócrates e professor de Aristóteles?",
+      "opcoes": {
+        "a": "Platão",
+        "b": "Pitágoras",
+        "c": "Heráclito",
+        "d": "Demócrito",
+        "e": "Parmênides"
+      },
+      "resposta_correta": "a",
+      "modalidade": "ETEC",
+      "eixo_tecnologico": "Filosofia"
+    },
+    {
+      "enunciado": "Qual é o gênero literário da obra 'Dom Quixote'?",
+      "opcoes": {
+        "a": "Poema épico",
+        "b": "Crônica",
+        "c": "Romance",
+        "d": "Drama",
+        "e": "Tragédia"
+      },
+      "resposta_correta": "c",
+      "modalidade": "FATEC",
+      "eixo_tecnologico": "Português"
+    },
+    {
+      "enunciado": "Qual sociólogo introduziu o conceito de 'habitus'?",
+      "opcoes": {
+        "a": "Max Weber",
+        "b": "Émile Durkheim",
+        "c": "Karl Marx",
+        "d": "Pierre Bourdieu",
+        "e": "Norbert Elias"
+      },
+      "resposta_correta": "d",
+      "modalidade": "FATEC",
+      "eixo_tecnologico": "Sociologia"
+    },
+    {
+      "enunciado": "Qual é a integral de (x^2)?",
+      "opcoes": {
+        "a": "x^3/3 + C",
+        "b": "2x",
+        "c": "x^2/2 + C",
+        "d": "x^3/3",
+        "e": "x^2 + C"
+      },
+      "resposta_correta": "a",
+      "modalidade": "ETEC",
+      "eixo_tecnologico": "Matemática"
+    },
+    {
+      "enunciado": "Qual é o nome do movimento social que lutou pela independência da Índia?",
+      "opcoes": {
+        "a": "Revolução Industrial",
+        "b": "Guerra Civil Americana",
+        "c": "Movimento dos Direitos Civis",
+        "d": "Movimento de Independência da Índia",
+        "e": "Revolução Francesa"
+      },
+      "resposta_correta": "d",
+      "modalidade": "ETEC",
+      "eixo_tecnologico": "Atualidades"
+    },
+    {
+      "enunciado": "Qual é o símbolo químico do ferro?",
+      "opcoes": {
+        "a": "Fe",
+        "b": "Ir",
+        "c": "F",
+        "d": "I",
+        "e": "Fr"
+      },
+      "resposta_correta": "a",
+      "modalidade": "FATEC",
+      "eixo_tecnologico": "Química"
+    },
+    {
+      "enunciado": "Qual é a função das mitocôndrias nas células?",
+      "opcoes": {
+        "a": "Fotossíntese",
+        "b": "Síntese de proteínas",
+        "c": "Produção de energia",
+        "d": "Divisão celular",
+        "e": "Transporte de nutrientes"
+      },
+      "resposta_correta": "c",
+      "modalidade": "ETEC",
+      "eixo_tecnologico": "Biologia"
+    }
+  ]
+}

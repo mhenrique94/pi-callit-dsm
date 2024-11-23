@@ -22,7 +22,7 @@
                 <li><a href="./quem-somos.html">Quem somos</a></li>
                 <li><a href="#">Notícias</a></li>
                 <li><a href="./materiais-de-estudo.html">Materiais de estudo</a></li>
-                <li><a href="./fale-conosco.html">Fale conosco</a></li>
+                <li><a href="#">Fale conosco</a></li>
             </ul>
             <div class="ms-buttons">
                 <button class="button-secondary">
@@ -35,34 +35,54 @@
         </nav>
     </header>
 
-    <main class="container">
+    <main class="cadastro-container">
 
-        <div class="timer-container">
-            <div>Tempo restante:</div>
-            <div id="timer">30:00</div>
+        <h1>Fale Conosco</h1>
+
+        <img src="./assets/images/logo.png" class="imagem-logo-cadastro">
+
+        <div class="row">
+            <div class="mb-3 col">
+                <label for="nome" class="form-label">Nome</label>
+                <input type="nome" class="form-control" id="nome" placeholder="Digite seu Nome Completo">
+            </div>
+
+            <div class="mb-3 col">
+                <label for="telefone" class="form-label">Telefone</label>
+                <input type="telefone" class="form-control" id="telefone" placeholder="Digite seu telefone">
+            </div>
+
+            <div class="mb-3 col">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Digite seu email">
+            </div>
         </div>
 
-        <h2>Simulado</h2>
-
-        <form id="quiz-form">
-            <div class="questao">
-                <p id="enunciado">Qual é a capital do Brasil?</p>
-                <ul class="opcoes"></ul>
-                <div class="row">
-                    <div class="col"><button type="button" id="btn-responder" onclick="verificarResposta()" class="button-primary">Submeter Resposta</button></div>
-                    <div class="col"><button type="button" onclick="proximaQuestao()" id="btn-prox" class="button-primary">Próxima Questão -></button></div>
+        <div class="row-mensagem" >
+            <div class="mb-3 col">
+                <label for="mensagem" class="form-label">Mensagem</label>
+                <div class="form-floating">
+                    <textarea class="form-control" placeholder="escreva sua mensagem" id="mensagem"></textarea>
+                    <label for="mensagem">Escreva sua mensagem</label>
                 </div>
             </div>
-        </form>
-        <div class="resultado container">
-            <div id="resultado">
-                <h2>Seu resultado:</h2>
-                <h3 id="resultado-valor">Valor aqui</>
+  
+        <div class="cc-address">
+            <div class="mapouter">
+            <div class="gmap_canvas">
+                <iframe
+                class="gmap_iframe"
+                frameborder="0"
+                scrolling="no"
+                marginheight="0"
+                marginwidth="0"
+                src="https://maps.google.com/maps?hl=en&amp;q=Fatec Votorantim&amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+                ></iframe><a href="https://embed-googlemap.com"></a
+                >
             </div>
-        </div>
-    </main>
-
-
+            </div>
+    </div>
+        
 
     <footer>
         <div>
@@ -83,7 +103,7 @@
                         <li><a href="./quem-somos.html">Quem somos</a></li>
                         <li><a href="#">Notícias</a></li>
                         <li><a href="./materiais-de-estudo.html">Materiais de estudo</a></li>
-                        <li><a href="./fale-conosco.html">Fale conosco</a></li>
+                        <li><a href="#">Fale conosco</a></li>
                         <li><a href="./cadastro.html">Cadastre-se</a></li>
                     </ul>
                 </div>
@@ -110,7 +130,6 @@
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/f3828d2dcb.js" crossorigin="anonymous"></script>
     <script src="./script.js"></script>
-
 </body>
 
 </html>
