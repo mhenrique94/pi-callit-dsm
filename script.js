@@ -1,3 +1,5 @@
+let logado = false
+
 function startTimer(duration, display) {
   let timer = duration, minutes, seconds
   const interval = setInterval(() => {
@@ -14,8 +16,35 @@ function startTimer(duration, display) {
   }, 1000)
 }
 
+function processarLogado() {
+  const banner = document.querySelector("#botao-cadastro-banner")
+  if (banner) {
+    banner.style.display = "none"
+  }
+
+  const barraBotoes = document.querySelector(".ms-buttons")
+  if (barraBotoes) {
+    barraBotoes.style.display = "none"
+  }
+
+  const preFooter = document.querySelector("#pre-footer")
+  if (preFooter) {
+    preFooter.style.display = "none"
+  }
+
+  const atalhoAreaEstudante = document.getElementById("atalho-area-estudante")
+  if (atalhoAreaEstudante) {
+    atalhoAreaEstudante.style.display = "list-item"
+  }
+
+}
+
 // Inicializa a primeira questão ao carregar a página
 document.addEventListener('DOMContentLoaded', async (event) => {
+  if (isLoggedIn()) {
+    processarLogado()
+  }
+
   await carregarQuestoes()
   carregarQuestao()
   const thirtyMinutes = 30 * 60
@@ -33,10 +62,28 @@ function salvarInformacao(chave, valor) {
   localStorage.setItem(chave, JSON.stringify(valor))
 }
 
-// Função de Login
-function login() {
-  const dadosUsuario = recuperarInformacao("userData")
+function setLogado() {
+  salvarInformacao("logado", true)
+}
 
+// Função de Login
+function entrar() {
+  const email = document.getElementById('email').value
+  const senha = document.getElementById('senha').value
+  const dadosUsuario = recuperarInformacao("userData")
+  if (dadosUsuario?.email !== email) {
+    alert("Errou email cadastrado!: ", dadosUsuario.email)
+    return
+  }
+
+  if (dadosUsuario?.password !== senha) {
+    alert("Errou a senha!!", dadosUsuario.password)
+    return
+  }
+  logado = true
+
+  setLogado()
+  window.location.href = '/'
 }
 
 function cadastro(fullName, email, password) {
@@ -47,7 +94,25 @@ function cadastro(fullName, email, password) {
   }
   // Salvando os dados no localStorage
   salvarInformacao("userData", userData)
+  logado = true
 }
+
+function cadastrar() {
+  // Preencher os campos do formulário com os dados recuperados
+  const nome = document.getElementById('nome').value
+  const email = document.getElementById('email').value
+  const senha = document.getElementById('senha').value
+  const confSenha = document.getElementById('conf_senha').value
+
+  if (senha !== confSenha) {
+    alert("As senhas não são iguais.")
+    return
+  }
+  // Chamar a função cadastrar com os dados recuperados
+  cadastro(nome, email, senha)
+  window.location.href = '/'
+}
+
 
 // Função de Verificação se Está Logado
 function isLoggedIn() {
@@ -55,11 +120,9 @@ function isLoggedIn() {
   const dadosUsuario = recuperarInformacao("userData")
   let fullName = dadosUsuario?.fullName
   if (fullName) {
-    return {
-      fullName: fullName
-    }
+    return true
   }
-  return null
+  return false
 }
 
 let questoes = []
