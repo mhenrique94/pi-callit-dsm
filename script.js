@@ -3,16 +3,16 @@ let logado = false
 function startTimer(duration, display) {
   let timer = duration, minutes, seconds
   const interval = setInterval(() => {
-      minutes = Math.floor(timer / 60)
-      seconds = timer % 60
-      seconds = seconds < 10 ? '0' + seconds : seconds
+    minutes = Math.floor(timer / 60)
+    seconds = timer % 60
+    seconds = seconds < 10 ? '0' + seconds : seconds
 
-      display.textContent = `${minutes}:${seconds}`
+    display.textContent = `${minutes}:${seconds}`
 
-      if (--timer < 0) {
-          clearInterval(interval)
-          calcularNota()
-      }
+    if (--timer < 0) {
+      clearInterval(interval)
+      calcularNota()
+    }
   }, 1000)
 }
 
@@ -43,6 +43,7 @@ function processarLogado() {
 document.addEventListener('DOMContentLoaded', async (event) => {
   if (isLoggedIn()) {
     processarLogado()
+    criarLinhaDoTempoNotas()
   }
 
   await carregarQuestoes()
@@ -127,7 +128,7 @@ function isLoggedIn() {
 
 let questoes = []
 let questaoAtual = 0
-let numQuestoesSimulado = 10
+let numQuestoesSimulado = 3
 async function carregarQuestoes() {
   try {
     const response = await fetch("./assets/questoes.json")
@@ -142,7 +143,7 @@ async function carregarQuestoes() {
 
 function carregarQuestao() {
   const questao = questoes.questoes[questaoAtual]
-  document.getElementById("enunciado").innerText = questao.enunciado
+  document.getElementById("enunciado").innerText = `Questão ${questaoAtual + 1} - ${questao.enunciado}`
   const opcoes = document.querySelector(".opcoes")
   opcoes.innerHTML = ""
   for (const [key, value] of Object.entries(questao.opcoes)) {
@@ -152,7 +153,7 @@ function carregarQuestao() {
   }
 }
 
-function desabilitarBotaoResponder() {
+function desabilitarBotaoResponder () {
   const botao = document.querySelector('#btn-responder')
   botao.style.display = 'none'
 }
@@ -176,15 +177,18 @@ function verificarResposta() {
     return
   }
   const questao = questoes.questoes[questaoAtual]
-  salvarInformacao(
-    `resposta_${questaoAtual}`,
-    respostaSelecionada === questao.resposta_correta ? 1 : 0,
-  )
+  // Recuperar as respostas salvas no localStorage
+  let respostasQuestoes = recuperarInformacao("respostasQuestoes") || {}
+  // Atualizar ou adicionar a resposta atual
+  respostasQuestoes[questaoAtual] =
+    respostaSelecionada === questao.resposta_correta ? 1 : 0 // Salvar a entrada atualizada no localStorage
+  salvarInformacao("respostasQuestoes", respostasQuestoes)
   desabilitarBotaoResponder()
 }
+
 function proximaQuestao() {
   if (questaoAtual < numQuestoesSimulado) {
-    questaoAtual++
+    ++questaoAtual
     carregarQuestao()
     habilitarBotaoResponder()
   } else {
@@ -197,15 +201,81 @@ function sumirComQuestoes() {
 }
 
 function calcularNota() {
-  let nota = 0
-  desabilitarBotaoResponder()
-  sumirComQuestoes()
-  for (let i = 0; i < numQuestoesSimulado; i++) {
-    nota += parseInt(recuperarInformacao(`resposta_${i}`), 10)
+  let nota = 0;
+  desabilitarBotaoResponder();
+  sumirComQuestoes();
+  const respostasQuestoes = recuperarInformacao("respostasQuestoes") || {};
+  const resultadoDetalhado = document.getElementById("resultado-detalhado");
+  resultadoDetalhado.innerHTML = ""; // Limpar conteúdo anterior
+  for (let i = 0; i < questoes.length; i++) {
+    const respostaUsuario = respostasQuestoes[i];
+    const questao = questoes[i];
+    const respostaCorreta = questao.resposta_correta;
+    if (respostaUsuario !== undefined) {
+      nota += respostaUsuario;
+    }
+    const questaoContainer = document.createElement("div");
+    questaoContainer.className = "questao-container";
+    const questaoTitulo = document.createElement("h4");
+    questaoTitulo.innerText = `Questão ${i + 1}: ${questao.enunciado}`;
+    questaoContainer.appendChild(questaoTitulo);
+    const respostaCorretaParagrafo = document.createElement("p");
+    respostaCorretaParagrafo.innerText = `Resposta Correta: ${questao.opcoes[respostaCorreta]}`;
+    respostaCorretaParagrafo.className = "resposta-correta";
+    questaoContainer.appendChild(respostaCorretaParagrafo);
+    const respostaUsuarioParagrafo = document.createElement("p");
+    respostaUsuarioParagrafo.innerText = `Sua Resposta: ${questao.opcoes[Object.keys(questao.opcoes)[respostaUsuario === 1 ? Object.values(questao.opcoes).indexOf(questao.opcoes[respostaCorreta]) : respostaUsuario] || respostaUsuario]}`;
+    respostaUsuarioParagrafo.className =
+      respostaUsuario === 1 ? "resposta-correta" : "resposta-errada";
+    questaoContainer.appendChild(respostaUsuarioParagrafo);
+    resultadoDetalhado.appendChild(questaoContainer);
   }
+  const notasAnteriores = recuperarInformacao("notasAnteriores") || [];
+  const agora = new Date();
+  notasAnteriores.push({ data: agora, nota });
+  salvarInformacao("notasAnteriores", notasAnteriores);
   document.getElementById("resultado-valor").innerText =
-    `${nota}/${numQuestoesSimulado}`
-
-    document.querySelector('.resultado').style.display = "block"
+    `${nota}/${questoes.length}`;
+  document.querySelector(".resultado").style.display = "block";
 }
 
+function criarLinhaDoTempoNotas() {
+  const notasAnteriores = recuperarInformacao("notasAnteriores")
+  // Agrupa as notas por data
+  const notasPorData = notasAnteriores.reduce((acc, item) => {
+    const data = new Date(item.data).toLocaleDateString()
+    if (!acc[data]) {
+      acc[data] = []
+    }
+    acc[data].push(item.nota)
+    return acc
+  }, {}) // Cria o container da linha do tempo
+  const linhaDoTempoContainer =
+    document.getElementsByClassName("linha-do-tempo")[0]
+
+  if (!linhaDoTempoContainer) return
+
+  linhaDoTempoContainer.innerHTML = ""
+  // Limpa o conteúdo anterior // Adiciona as notas agrupadas por data ao container
+  for (const [data, notas] of Object.entries(notasPorData)) {
+    const dataContainer = document.createElement("div")
+    dataContainer.className = "data-container mb-3"
+    const dataTitulo = document.createElement("h3")
+    dataTitulo.innerText = data
+    dataContainer.appendChild(dataTitulo)
+    notas.forEach((nota, index) => {
+      const notaParagrafo = document.createElement("p")
+      notaParagrafo.innerText = `Nota ${index + 1}: ${nota.toFixed(2)}` // Estiliza as notas com uma barra de progresso
+      const notaBarraContainer = document.createElement("div")
+      notaBarraContainer.className = "nota-barra-container"
+      const notaBarra = document.createElement("div")
+      notaBarra.className = "nota-barra"
+      notaBarra.style.width = `${nota * 10}%`
+      notaBarra.style.backgroundColor = `hsl(${(1 - nota) * 120}, 100%, 50%)`
+      notaBarraContainer.appendChild(notaBarra)
+      dataContainer.appendChild(notaParagrafo)
+      dataContainer.appendChild(notaBarraContainer)
+    })
+    linhaDoTempoContainer.appendChild(dataContainer)
+  }
+}
