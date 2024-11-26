@@ -704,13 +704,22 @@ referente a pagina de cadastro
     margin-right: 10px;
 }
 
+
+/* Area do estudante */
 .area-estudante {
     display: flex;
     height: 200px;
     padding: 30px;
     margin: 30px auto !important;
     max-width: 800px;
+}
 
+#dados-estudante {
+    width: 100%;
+    text-align: right;
+}
+.email-usuario {
+    color: #555;
 }
 
 .area-estudante a,
@@ -876,7 +885,7 @@ referente a pagina de cadastro
     border: 1px solid #ccc;
     border-radius: 10px;
     background-color: #f9f9f9;
-    margin: 0 auto;
+    margin: 0 auto 24px auto;
 }
 
 .data-container {

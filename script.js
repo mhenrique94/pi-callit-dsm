@@ -1,8 +1,9 @@
 let logado = false
 let questoes = []
 let questaoAtual = 0
-let numQuestoesSimulado = 1
+let numQuestoesSimulado = 10
 let continuarTimer = true
+
 salvarInformacao("respostasQuestoes", {})
 salvarInformacao("historicoQuestoes", {})
 
@@ -61,6 +62,7 @@ function processarLogado() {
 document.addEventListener('DOMContentLoaded', async (event) => {
   if (isLoggedIn()) {
     processarLogado()
+    carregarDadosEstudante()
     criarLinhaDoTempoNotas()
   }
 
@@ -68,7 +70,8 @@ document.addEventListener('DOMContentLoaded', async (event) => {
   carregarQuestao()
   const thirtyMinutes = 30 * 60
   const display = document.getElementById('timer')
-  startTimer(thirtyMinutes, display)
+  if (display)
+    startTimer(thirtyMinutes, display)
 })
 
 // Função Genérica de Recuperação de Informação
@@ -160,13 +163,16 @@ async function carregarQuestoes() {
 
 function carregarQuestao() {
   const questao = questoes.questoes[questaoAtual]
-  document.getElementById("enunciado").innerText = `Questão ${questaoAtual + 1} - ${questao.enunciado}`
-  const opcoes = document.querySelector(".opcoes")
-  opcoes.innerHTML = ""
-  for (const [key, value] of Object.entries(questao.opcoes)) {
-    const li = document.createElement("li")
-    li.innerHTML = `<label><input type="radio" name="resposta" value="${key}"> ${value}</label>`
-    opcoes.appendChild(li)
+  const enunciado = document.getElementById("enunciado")
+  if (enunciado) {
+    enunciado.innerText = `Questão ${questaoAtual + 1} - ${questao.enunciado}`
+    const opcoes = document.querySelector(".opcoes")
+    opcoes.innerHTML = ""
+    for (const [key, value] of Object.entries(questao.opcoes)) {
+      const li = document.createElement("li")
+      li.innerHTML = `<label><input type="radio" name="resposta" value="${key}"> ${value}</label>`
+      opcoes.appendChild(li)
+    }
   }
 }
 
@@ -208,7 +214,7 @@ function verificarResposta() {
 }
 
 function proximaQuestao() {
-  if (questaoAtual < numQuestoesSimulado) {
+  if (questaoAtual < numQuestoesSimulado - 1) {
     ++questaoAtual
     carregarQuestao()
     habilitarBotaoResponder()
@@ -275,6 +281,26 @@ function calcularNota() {
   document.getElementById("resultado-valor").innerText =
     `${nota}/${Object.entries(respostasQuestoes).length}`
   document.querySelector(".resultado").style.display = "block"
+}
+
+function carregarDadosEstudante() {
+  const dadosContainer = document.getElementById("dados-estudante")
+  if (!dadosContainer) return
+
+  const dadosUsuario = recuperarInformacao("userData")
+
+  let fullName = dadosUsuario?.fullName
+  const nomeContainer = document.createElement("h3")
+  nomeContainer.className = "mt-4 mb-0 fw-bold"
+  nomeContainer.innerText = fullName
+  
+  let email = dadosUsuario?.email
+  const emailContainer = document.createElement("span")
+  emailContainer.className = "email-usuario"
+  emailContainer.innerText = email
+
+  dadosContainer.appendChild(nomeContainer)
+  dadosContainer.appendChild(emailContainer)
 }
 
 function criarLinhaDoTempoNotas() {
