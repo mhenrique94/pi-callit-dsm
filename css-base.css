@@ -509,6 +509,16 @@ pagina noticias
     justify-content: center;
 }
 
+.resposta-correta {
+    color: rgb(3, 104, 3);
+    font-weight: 600;
+}
+
+.resposta-errada {
+    color: rgb(143, 3, 3);
+    font-weight: 600;
+}
+
 /* design do timer */
 .timer-container {
     font-family: Arial, sans-serif;
@@ -899,5 +909,12 @@ referente a pagina de cadastro
     height: 100%;
     border-radius: 5px;
     transition: width 0.3s ease;
+}
+
+#btn-minha-area {
+    width: 100%;
+    display: none;
+    justify-content: center;
+    margin: 24px auto;
 }
 
