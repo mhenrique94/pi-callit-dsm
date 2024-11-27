@@ -1,19 +1,38 @@
 let logado = false
+let questoes = []
+let questaoAtual = 0
+let numQuestoesSimulado = 10
+let continuarTimer = true
+
+salvarInformacao("respostasQuestoes", {})
+salvarInformacao("historicoQuestoes", {})
+
+
+function pararTimer() {
+  continuarTimer = false
+}
 
 function startTimer(duration, display) {
   let timer = duration, minutes, seconds
   const interval = setInterval(() => {
-      minutes = Math.floor(timer / 60)
-      seconds = timer % 60
-      seconds = seconds < 10 ? '0' + seconds : seconds
+    minutes = Math.floor(timer / 60)
+    seconds = timer % 60
+    seconds = seconds < 10 ? '0' + seconds : seconds
 
-      display.textContent = `${minutes}:${seconds}`
+    display.textContent = `${minutes}:${seconds}`
 
-      if (--timer < 0) {
-          clearInterval(interval)
-          calcularNota()
-      }
+    if (--timer < 0) {
+      clearInterval(interval)
+      calcularNota()
+    }
+
+    if (!continuarTimer) {
+      clearInterval(interval)
+      return
+    }
+
   }, 1000)
+
 }
 
 function processarLogado() {
@@ -43,13 +62,16 @@ function processarLogado() {
 document.addEventListener('DOMContentLoaded', async (event) => {
   if (isLoggedIn()) {
     processarLogado()
+    carregarDadosEstudante()
+    criarLinhaDoTempoNotas()
   }
 
   await carregarQuestoes()
   carregarQuestao()
   const thirtyMinutes = 30 * 60
   const display = document.getElementById('timer')
-  startTimer(thirtyMinutes, display)
+  if (display)
+    startTimer(thirtyMinutes, display)
 })
 
 // Função Genérica de Recuperação de Informação
@@ -125,9 +147,8 @@ function isLoggedIn() {
   return false
 }
 
-let questoes = []
-let questaoAtual = 0
-let numQuestoesSimulado = 10
+
+
 async function carregarQuestoes() {
   try {
     const response = await fetch("./assets/questoes.json")
@@ -142,17 +163,20 @@ async function carregarQuestoes() {
 
 function carregarQuestao() {
   const questao = questoes.questoes[questaoAtual]
-  document.getElementById("enunciado").innerText = questao.enunciado
-  const opcoes = document.querySelector(".opcoes")
-  opcoes.innerHTML = ""
-  for (const [key, value] of Object.entries(questao.opcoes)) {
-    const li = document.createElement("li")
-    li.innerHTML = `<label><input type="radio" name="resposta" value="${key}"> ${value}</label>`
-    opcoes.appendChild(li)
+  const enunciado = document.getElementById("enunciado")
+  if (enunciado) {
+    enunciado.innerText = `Questão ${questaoAtual + 1} - ${questao.enunciado}`
+    const opcoes = document.querySelector(".opcoes")
+    opcoes.innerHTML = ""
+    for (const [key, value] of Object.entries(questao.opcoes)) {
+      const li = document.createElement("li")
+      li.innerHTML = `<label><input type="radio" name="resposta" value="${key}"> ${value}</label>`
+      opcoes.appendChild(li)
+    }
   }
 }
 
-function desabilitarBotaoResponder() {
+function desabilitarBotaoResponder () {
   const botao = document.querySelector('#btn-responder')
   botao.style.display = 'none'
 }
@@ -176,15 +200,22 @@ function verificarResposta() {
     return
   }
   const questao = questoes.questoes[questaoAtual]
-  salvarInformacao(
-    `resposta_${questaoAtual}`,
-    respostaSelecionada === questao.resposta_correta ? 1 : 0,
-  )
+  // Recuperar as respostas salvas no localStorage
+  let respostasQuestoes = recuperarInformacao("respostasQuestoes")
+  let historicoQuestoes = recuperarInformacao("historicoQuestoes")
+  // Atualizar ou adicionar a resposta atual
+
+  const respostaDada = respostaSelecionada === questao.resposta_correta ? 1 : 0
+  respostasQuestoes[questaoAtual] = respostaDada
+  historicoQuestoes[questaoAtual] = respostaDada
+  salvarInformacao("respostasQuestoes", respostasQuestoes)
+  salvarInformacao("historicoQuestoes", historicoQuestoes)
   desabilitarBotaoResponder()
 }
+
 function proximaQuestao() {
-  if (questaoAtual < numQuestoesSimulado) {
-    questaoAtual++
+  if (questaoAtual < numQuestoesSimulado - 1) {
+    ++questaoAtual
     carregarQuestao()
     habilitarBotaoResponder()
   } else {
@@ -192,20 +223,130 @@ function proximaQuestao() {
   }
 }
 
-function sumirComQuestoes() {
+function prepararResultados() {
   document.getElementById("quiz-form").style.display = 'none'
+  document.getElementById("btn-minha-area").style.display = 'flex'
 }
 
 function calcularNota() {
   let nota = 0
   desabilitarBotaoResponder()
-  sumirComQuestoes()
-  for (let i = 0; i < numQuestoesSimulado; i++) {
-    nota += parseInt(recuperarInformacao(`resposta_${i}`), 10)
-  }
-  document.getElementById("resultado-valor").innerText =
-    `${nota}/${numQuestoesSimulado}`
+  prepararResultados()
+  pararTimer()
 
-    document.querySelector('.resultado').style.display = "block"
+  const respostasQuestoes = recuperarInformacao("respostasQuestoes")
+  const resultadoDetalhado = document.getElementById("resultado-detalhado")
+  const tituloResultado = document.createElement("h3")
+  const divisoria = document.createElement("hr")
+  tituloResultado.innerText = "Resultado detalhado"
+  tituloResultado.className = "my-2"
+  resultadoDetalhado.appendChild(tituloResultado)
+  resultadoDetalhado.appendChild(divisoria)
+  for (const chaveQuestao in respostasQuestoes) {
+    const respostaUsuario = respostasQuestoes[chaveQuestao]
+    const questao = questoes.questoes[chaveQuestao]
+    const respostaCorreta = questao.resposta_correta
+    if (respostaUsuario !== undefined) {
+      nota += respostaUsuario
+    }
+    const questaoContainer = document.createElement("div")
+    const tituloContainer = document.createElement("div")
+    tituloContainer.className = "d-inline-flex gap-2"
+    questaoContainer.className = "questao-container"
+    const questaoTitulo = document.createElement("h4")
+    questaoTitulo.innerText = `Questão ${Number(chaveQuestao) + 1}: ${questao.enunciado}`
+    questaoTitulo.className = "mt-2"
+    tituloContainer.appendChild(questaoTitulo)
+    questaoContainer.appendChild(tituloContainer)
+    if (respostaUsuario) {
+      const icon = document.createElement("i")
+      icon.className = "fa-solid fa-check text-success"
+      tituloContainer.appendChild(icon)
+    }
+    const respostaCorretaParagrafo = document.createElement("p")
+    respostaCorretaParagrafo.innerText = `Resposta Correta: ${questao.opcoes[respostaCorreta]}`
+
+    questaoContainer.appendChild(respostaCorretaParagrafo)
+    const respostaUsuarioParagrafo = document.createElement("p")
+    respostaUsuarioParagrafo.innerText = `Sua Resposta: ${questao.opcoes[Object.keys(questao.opcoes)[respostaUsuario === 1 ? Object.values(questao.opcoes).indexOf(questao.opcoes[respostaCorreta]) : respostaUsuario] || respostaUsuario]}`
+    respostaUsuarioParagrafo.className =
+      respostaUsuario ? "resposta-correta" : "resposta-errada"
+    questaoContainer.appendChild(respostaUsuarioParagrafo)
+    resultadoDetalhado.appendChild(questaoContainer)
+  }
+  const notasAnteriores = recuperarInformacao("notasAnteriores") || []
+  const agora = new Date()
+  notasAnteriores.push({ data: agora, nota })
+  salvarInformacao("notasAnteriores", notasAnteriores)
+  document.getElementById("resultado-valor").innerText =
+    `${nota}/${Object.entries(respostasQuestoes).length}`
+  document.querySelector(".resultado").style.display = "block"
 }
 
+function carregarDadosEstudante() {
+  const dadosContainer = document.getElementById("dados-estudante")
+  if (!dadosContainer) return
+
+  const dadosUsuario = recuperarInformacao("userData")
+
+  let fullName = dadosUsuario?.fullName
+  const nomeContainer = document.createElement("h3")
+  nomeContainer.className = "mt-4 mb-0 fw-bold"
+  nomeContainer.innerText = fullName
+  
+  let email = dadosUsuario?.email
+  const emailContainer = document.createElement("span")
+  emailContainer.className = "email-usuario"
+  emailContainer.innerText = email
+
+  dadosContainer.appendChild(nomeContainer)
+  dadosContainer.appendChild(emailContainer)
+}
+
+function criarLinhaDoTempoNotas() {
+  const notasAnteriores = recuperarInformacao("notasAnteriores")
+  const linhaDoTempoContainer =
+    document.getElementsByClassName("linha-do-tempo")[0]
+
+  if (!linhaDoTempoContainer) return
+
+  if (!notasAnteriores) {
+    const dataTitulo = document.createElement("h4")
+    dataTitulo.innerText = "Você ainda não possui notas registradas."
+    linhaDoTempoContainer.appendChild(dataTitulo)
+    return
+  }
+  // Agrupa as notas por data
+  const notasPorData = notasAnteriores.reduce((acc, item) => {
+    const data = new Date(item.data).toLocaleDateString()
+    if (!acc[data]) {
+      acc[data] = []
+    }
+    acc[data].push(item.nota)
+    return acc
+  }, {}) // Cria o container da linha do tempo
+
+  linhaDoTempoContainer.innerHTML = ""
+  // Limpa o conteúdo anterior // Adiciona as notas agrupadas por data ao container
+  for (const [data, notas] of Object.entries(notasPorData)) {
+    const dataContainer = document.createElement("div")
+    dataContainer.className = "data-container mb-3"
+    const dataTitulo = document.createElement("h3")
+    dataTitulo.innerText = data
+    dataContainer.appendChild(dataTitulo)
+    notas.forEach((nota, index) => {
+      const notaParagrafo = document.createElement("p")
+      notaParagrafo.innerText = `Nota ${index + 1}: ${nota.toFixed(2)}` // Estiliza as notas com uma barra de progresso
+      const notaBarraContainer = document.createElement("div")
+      notaBarraContainer.className = "nota-barra-container"
+      const notaBarra = document.createElement("div")
+      notaBarra.className = "nota-barra"
+      notaBarra.style.width = `${nota * 10}%`
+      notaBarra.style.backgroundColor = `hsl(${(1 - nota) * 120}, 100%, 50%)`
+      notaBarraContainer.appendChild(notaBarra)
+      dataContainer.appendChild(notaParagrafo)
+      dataContainer.appendChild(notaBarraContainer)
+    })
+    linhaDoTempoContainer.appendChild(dataContainer)
+  }
+}
