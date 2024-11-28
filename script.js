@@ -5,8 +5,12 @@ let numQuestoesSimulado = 10
 let continuarTimer = true
 
 salvarInformacao("respostasQuestoes", {})
-salvarInformacao("historicoQuestoes", {})
 
+function embaralhar(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));[array[i], array[j]] = [array[j], array[i]]
+  }
+}
 
 function pararTimer() {
   continuarTimer = false
@@ -64,6 +68,7 @@ document.addEventListener('DOMContentLoaded', async (event) => {
     processarLogado()
     carregarDadosEstudante()
     criarLinhaDoTempoNotas()
+    exibirPerformance()
   }
 
   await carregarQuestoes()
@@ -202,7 +207,7 @@ function verificarResposta() {
   const questao = questoes.questoes[questaoAtual]
   // Recuperar as respostas salvas no localStorage
   let respostasQuestoes = recuperarInformacao("respostasQuestoes")
-  let historicoQuestoes = recuperarInformacao("historicoQuestoes")
+  let historicoQuestoes = recuperarInformacao("historicoQuestoes") || {}
   // Atualizar ou adicionar a resposta atual
 
   const respostaDada = respostaSelecionada === questao.resposta_correta ? 1 : 0
@@ -293,7 +298,7 @@ function carregarDadosEstudante() {
   const nomeContainer = document.createElement("h3")
   nomeContainer.className = "mt-4 mb-0 fw-bold"
   nomeContainer.innerText = fullName
-  
+
   let email = dadosUsuario?.email
   const emailContainer = document.createElement("span")
   emailContainer.className = "email-usuario"
@@ -305,8 +310,7 @@ function carregarDadosEstudante() {
 
 function criarLinhaDoTempoNotas() {
   const notasAnteriores = recuperarInformacao("notasAnteriores")
-  const linhaDoTempoContainer =
-    document.getElementsByClassName("linha-do-tempo")[0]
+  const linhaDoTempoContainer = document.getElementsByClassName("linha-do-tempo")[0]
 
   if (!linhaDoTempoContainer) return
 
@@ -316,37 +320,104 @@ function criarLinhaDoTempoNotas() {
     linhaDoTempoContainer.appendChild(dataTitulo)
     return
   }
+
   // Agrupa as notas por data
   const notasPorData = notasAnteriores.reduce((acc, item) => {
-    const data = new Date(item.data).toLocaleDateString()
+    const dataCompleta = new Date(item.data)
+    const data = dataCompleta.toLocaleDateString()
+    const horario = dataCompleta.toLocaleTimeString()
+
     if (!acc[data]) {
       acc[data] = []
     }
-    acc[data].push(item.nota)
+    acc[data].push({ nota: item.nota, horario })
     return acc
-  }, {}) // Cria o container da linha do tempo
+  }, {})
 
+  // Limpa o conteúdo anterior
   linhaDoTempoContainer.innerHTML = ""
-  // Limpa o conteúdo anterior // Adiciona as notas agrupadas por data ao container
+
+  // Adiciona as notas agrupadas por data ao container
   for (const [data, notas] of Object.entries(notasPorData)) {
     const dataContainer = document.createElement("div")
     dataContainer.className = "data-container mb-3"
     const dataTitulo = document.createElement("h3")
     dataTitulo.innerText = data
     dataContainer.appendChild(dataTitulo)
-    notas.forEach((nota, index) => {
+
+    notas.forEach((item, index) => {
       const notaParagrafo = document.createElement("p")
-      notaParagrafo.innerText = `Nota ${index + 1}: ${nota.toFixed(2)}` // Estiliza as notas com uma barra de progresso
+      notaParagrafo.innerText = `Nota ${index + 1}: ${item.nota.toFixed(2)} - ${item.horario}`
+      // Estiliza as notas com uma barra de progresso
       const notaBarraContainer = document.createElement("div")
       notaBarraContainer.className = "nota-barra-container"
       const notaBarra = document.createElement("div")
       notaBarra.className = "nota-barra"
-      notaBarra.style.width = `${nota * 10}%`
-      notaBarra.style.backgroundColor = `hsl(${(1 - nota) * 120}, 100%, 50%)`
+      notaBarra.style.width = `${item.nota * 10}%`
+      notaBarra.style.backgroundColor = `hsl(${(1 - item.nota) * 120}, 100%, 50%)`
       notaBarraContainer.appendChild(notaBarra)
       dataContainer.appendChild(notaParagrafo)
       dataContainer.appendChild(notaBarraContainer)
     })
+
     linhaDoTempoContainer.appendChild(dataContainer)
   }
+}
+
+
+async function calcularPerformance() {
+  await carregarQuestoes()
+  let historicoQuestoes = recuperarInformacao("historicoQuestoes")
+  if (!historicoQuestoes) return
+
+  const desempenhoPorEixo = questoes.questoes.reduce((acc, questao, index) => {
+    const acertou = historicoQuestoes[index]
+    const { eixo_tecnologico } = questao
+    if (acertou !== undefined) {
+      acc[eixo_tecnologico] = acc[eixo_tecnologico] || {
+        total: 0,
+        corretas: 0,
+      };
+      acc[eixo_tecnologico].total++
+      if (acertou) {
+        acc[eixo_tecnologico].corretas++
+      }
+    }
+    return acc
+  }, {})
+  const performanceFinal = {}
+  Object.keys(desempenhoPorEixo).forEach((eixo) => {
+    const { total, corretas } = desempenhoPorEixo[eixo]
+    performanceFinal[eixo] = (corretas / total) * 10.0
+  });
+  return performanceFinal
+}
+
+async function exibirPerformance() {
+  const performance = await calcularPerformance()
+  const performanceResult = document.getElementById("performance-result")
+
+  if (!performanceResult) {
+    return
+  }
+
+  if (!performance) {
+    performanceResult.innerText = "Você ainda não possui notas registradas."
+    return
+  }
+
+  Object.keys(performance).forEach((eixo) => {
+    const itemDiv = document.createElement("div")
+    itemDiv.className = "performance-item"
+
+    const itemTitulo = document.createElement("h3")
+    itemTitulo.innerText = eixo
+    itemDiv.appendChild(itemTitulo)
+
+    const itemValor = document.createElement("h5")
+    itemValor.className = "fw-bold"
+    itemValor.innerText = performance[eixo].toFixed(2)
+    itemDiv.appendChild(itemValor)
+    performanceResult.appendChild(itemDiv)
+  })
 }
