@@ -347,7 +347,9 @@ function criarLinhaDoTempoNotas() {
 
     notas.forEach((item, index) => {
       const notaParagrafo = document.createElement("p")
-      notaParagrafo.innerText = `Nota ${index + 1}: ${item.nota.toFixed(2)} - ${item.horario}`
+      notaParagrafo.className = "mt-3"
+      notaParagrafo.innerHTML = `${item.horario}: <span class="fw-bold">${item.nota.toFixed(2)}</span>`
+
       // Estiliza as notas com uma barra de progresso
       const notaBarraContainer = document.createElement("div")
       notaBarraContainer.className = "nota-barra-container"
@@ -401,7 +403,7 @@ async function exibirPerformance() {
     return
   }
 
-  if (!performance) {
+  if (!Object.entries(performance).length) {
     performanceResult.innerText = "Você ainda não possui notas registradas."
     return
   }
